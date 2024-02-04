@@ -19,7 +19,11 @@ or with SSH
 ```
 git clone git@github.com:vichekaoeun/GDSC-2024.git
 ```
-Make sure to run *npm install* to get all packages
+Make sure to *git pull* before anything
+```
+git pull
+```
+run *npm install* to get all packages
 ```
 npm install
 ```
