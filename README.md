@@ -6,7 +6,10 @@
 Before beginning you need to have
 * Git
 * Node.JS
-
+### File structure
+* All frontend development works on: *src* folder
+* All backend development works on: *api* folder
+* **Dont mess with *dist* folder**
 ### Installing
 
 ```
@@ -27,7 +30,7 @@ npm install
 ```
 npm run dev
 ```
-* Production
+* Production:
 ```
 npm run build
 ```
@@ -43,5 +46,7 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+* Vicheka Oeun
+* Kometh Tauch
+* Christopher Soo
+* Siha Mongkul
