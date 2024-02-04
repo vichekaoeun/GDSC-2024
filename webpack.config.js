@@ -22,7 +22,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist'), // Change 'public' to the directory where your HTML file is located
+            directory: path.join(__dirname, 'dist'),
         },
         historyApiFallback: true,
     }
