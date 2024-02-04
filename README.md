@@ -1,7 +1,9 @@
 # GDSC-2024
 ## Description
 ## Getting Started
-
+## Technologies
+* **Frontend:** REACT, Bootstrap, SASS, Webpack, Babel
+* **Backend:** Django, MongoDB
 ### Dependencies
 Before beginning you need to have
 * Git
