@@ -55,4 +55,4 @@ Contributors names and contact info
 * Vicheka Oeun
 * Kometh Tauch
 * Christopher Soo
-* Siha Mongkul
+* Sihamongkul Ros

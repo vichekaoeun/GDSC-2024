@@ -1,13 +1,14 @@
 import React from 'react'
 import "./scss/_variables.scss"
 import './scss/style.scss';
-import Nav from './components/Nav'
+import './scss/_variables.scss';
+import Nav from './components/Nav';
+import Footer from './components/Footer'
 
 const App = () => {
     return (
-        <div className="container py-4 px-3 mx-auto bg-primary">
-            <h1>Hello, Bootstrap and Webpack!</h1>
-            <button className="btn btn-primary">Primary button</button>
+        <div>
+            <Nav />
         </div>
     )
 }
