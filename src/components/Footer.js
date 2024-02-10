@@ -47,10 +47,10 @@ export default function Footer() {
             <div className="col text-center">
                 <h1 className="roboto-regular">Other Links</h1>
                 <ul>
-                    <li className="list-group-item">About Us</li>
-                    <li className="list-group-item">Sponsors</li>
-                    <li className="list-group-item">Partners</li>
-                    <li className="list-group-item">Terms of Service</li>
+                    <li className="list-group-item fs-2">About Us</li>
+                    <li className="list-group-item fs-2">Sponsors</li>
+                    <li className="list-group-item fs-2">Partners</li>
+                    <li className="list-group-item fs-2">Terms of Service</li>
                 </ul>
             </div>
         </div>
