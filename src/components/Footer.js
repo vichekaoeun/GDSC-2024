@@ -27,7 +27,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="me-5">
-                            <button type='submit' className="btn btn-secondary mt-3">Submit</button>
+                            <button type='submit' className="btn btn-secondary mt-4 me-4">Send</button>
                         </div>
                         <div></div>
                     </form>
