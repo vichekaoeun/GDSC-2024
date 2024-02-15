@@ -5,6 +5,8 @@ import About from "../pages/About";
 import Sponsors from "../pages/Sponsors";
 import Terms from "../pages/Terms";
 import Partners from "../pages/Partners";
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
 
 export default function Route() {
     const router = createBrowserRouter([
@@ -28,6 +30,14 @@ export default function Route() {
             path: '/policy',
             element: <Terms />
         },
+        {
+            path: '/signup',
+            element: <Signup />
+        },
+        {
+            path: '/signin',
+            element: <Signin />
+        }
     ]);
     return <RouterProvider router={router} />
 }

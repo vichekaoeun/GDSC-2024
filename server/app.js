@@ -48,5 +48,4 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
-
 module.exports = app;
