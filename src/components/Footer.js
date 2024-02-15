@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -47,10 +48,10 @@ export default function Footer() {
             <div className="col text-center">
                 <h1 className="roboto-regular">Other Links</h1>
                 <ul>
-                    <li className="list-group-item fs-2">About Us</li>
-                    <li className="list-group-item fs-2">Sponsors</li>
-                    <li className="list-group-item fs-2">Partners</li>
-                    <li className="list-group-item fs-2">Terms of Service</li>
+                    <li className="list-group-item fs-2"><Link to='/about'>About Us</Link></li>
+                    <li className="list-group-item fs-2"><Link to='/sponsors'>Sponsors</Link></li>
+                    <li className="list-group-item fs-2"><Link to='/partners'>Partners</Link></li>
+                    <li className="list-group-item fs-2"><Link to='/policy'>Terms of Service</Link></li>
                 </ul>
             </div>
         </div>
