@@ -1,5 +1,6 @@
 import React from "react";
 import Profile from "./Profile";
+import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -18,9 +19,22 @@ const app = initializeApp(firebaseConfig); // Initialize Firebase app
 const auth = getAuth(app);
 
 export default function Signin() {
+    const navigate = useNavigate();
+
     const signInWithGoogle = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+
+                // You can access user properties here
+                console.log('User ID:', user.uid);
+                console.log('Email:', user.email);
+                console.log('Display Name:', user.displayName);
+                console.log('Photo URL:', user.photoURL);
+                console.log('Linked Google Account:', user.providerData);
+                navigate("/profile");
+            })
             .catch((error) => {
                 // Handle the canceled popup request error
                 if (error.code === 'auth/cancelled-popup-request') {
@@ -35,7 +49,8 @@ export default function Signin() {
         <>
             <h1>SignIn Page</h1>
             <div>
-                <button onClick={signInWithGoogle}>Sign in with Google</button>
+                <button onClick={signInWithGoogle} className="btn btn-primary">Sign in with Google</button>
+                <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
             </div>
         </>
     )
