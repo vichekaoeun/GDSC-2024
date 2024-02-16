@@ -35,6 +35,7 @@ export default function Profile() {
         <>
             <h1>Profile</h1>
             <button onClick={handleSignOut} className="btn btn-primary">Logout</button>
+            <Link to='/'>Return to home</Link>
         </>
     )
 }
