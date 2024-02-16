@@ -46,7 +46,7 @@ export default function Signin() {
             });
     }
 
-    const handleSignUp = (e) => {
+    const handleSignIn = (e) => {
         e.preventDefault(); // Prevent form submission
 
         signInWithEmailAndPassword(auth, email, password)
@@ -70,7 +70,7 @@ export default function Signin() {
                 <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
             </div>
             <div>
-                <form onSubmit={handleSignUp}>
+                <form onSubmit={handleSignIn}>
                     <div>
                         <input type="email" id="text-email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                         <input type="password" id="text-password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
