@@ -32,16 +32,28 @@ export default function Route() {
             element: <Terms />
         },
         {
+            path: '/profile',
+            element: <Profile />
+        },
+        {
             path: '/signup',
-            element: <Signup />
+            element: <Signup />,
+            children: [
+                {
+                    path: 'profile',
+                    element: <Profile />
+                }
+            ]
         },
         {
             path: '/signin',
-            element: <Signin />
-        },
-        {
-            path: '/profile',
-            element: <Profile />
+            element: <Signin />,
+            children: [
+                {
+                    path: 'profile',
+                    element: <Profile />
+                }
+            ]
         }
     ]);
     return <RouterProvider router={router} />

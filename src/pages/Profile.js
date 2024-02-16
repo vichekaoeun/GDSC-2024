@@ -22,6 +22,7 @@ export default function Profile() {
     const handleSignOut = () => {
         signOut(auth)
             .then(() => {
+                console.log("User has logged out.")
                 navigate("/");
             })
             .catch((error) => {
@@ -33,7 +34,7 @@ export default function Profile() {
     return (
         <>
             <h1>Profile</h1>
-            <button onClick={handleSignOut} className="btn btn-primary">Sign out</button>
+            <button onClick={handleSignOut} className="btn btn-primary">Logout</button>
         </>
     )
 }
