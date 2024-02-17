@@ -2,12 +2,24 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
+const fs = require('fs');
+
+// Load environment variables from .env file
+const envPath = path.resolve(__dirname, '.env');
+const envContent = fs.readFileSync(envPath, 'utf8');
+const envLines = envContent.split('\n');
+const env = {};
+envLines.forEach(line => {
+    const [key, value] = line.split('=');
+    env[key.trim()] = JSON.stringify(value.trim());
+});
 
 module.exports = {
-    entry: './src/index.js', // Entry point of your application
+    entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'), // Output directory
-        filename: 'bundle.js' // Output bundle filename
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
         rules: [
@@ -15,9 +27,9 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader', // Use babel-loader for JavaScript/JSX files
+                    loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'] // Use presets for transpiling ES6/React code
+                        presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
             },
@@ -66,6 +78,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({ template: './src/index.html' }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': env
+        })
     ]
 };

@@ -2,14 +2,13 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import '../scss/_variables.scss';
 import '../scss/style.scss';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
     return (
         <nav className="navbar navbar-expand-xxl bg-primary ">
-            <div className="container-fluid d-flex flex-column align-items-start">
+            <div className="container-fluid d-flex flex-column align-items-start ">
                 <a className="navbar-brand" href="#">Therapy Talks</a>
-
-
                 <div className="collapse navbar-collapse " >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
@@ -27,6 +26,7 @@ export default function Nav() {
 
                     </ul>
                 </div>
+                <button className="btn btn-primary"><Link to='signin'>Login</Link></button>
             </div>
 
         </nav>

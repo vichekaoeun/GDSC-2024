@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function About() {
+export default function Sponsors() {
     return (
         <>
-            <h1>About us</h1>
+            <h1>Our Sponsors</h1>
         </>
     )
 }
