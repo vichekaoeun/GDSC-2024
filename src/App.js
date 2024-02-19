@@ -11,17 +11,17 @@ import AboutUs from './components/About-Us';
 const App = () => {
     return (
         <div>
-            {/* <Nav /> */}
+            <Nav />
 
             {/* Main Page */}
             {/* <Home />
             <Community /> */}
 
             {/* About Us page */}
-            {/* <AboutUs /> */}
+            <AboutUs />
 
             {/* <Test /> */}
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }

@@ -6,9 +6,9 @@ export default function AboutUs() {
     // about us page carousel is not changing page
 
     <div className='container-fluid'>
-      <div className='row bg-secondary'>
+
+      <div className='row' style={{ backgroundColor: '#80d8c8' }}>
         <div className='col-md-6'>
-          <p>shapes</p>
         </div> 
         <div className='text-center col-md-5 p-5 text-md-end'>
           <h1 style={{ fontWeight: 'bold', fontSize: '3rem' }}>About Us</h1>
@@ -18,9 +18,9 @@ export default function AboutUs() {
         </div> 
       </div>
 
-      <div className='row' style={{ backgroundColor: '#ff0000' }}>
+
+      <div className='row' style={{ backgroundColor: '#332d4f' }}>
         <div className='col-md-6'>
-          <p>images</p>
         </div>  
         <div className='text-center col-md-6 p-5 text-md-start'>
           <h1 style={{ fontWeight: 'bold', fontSize: '3rem' }}>About Us</h1>
@@ -31,27 +31,7 @@ export default function AboutUs() {
       </div>
 
       <div className='row bg-secondary'>
-        <div id="carouselExample" className="carousel slide">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src="./default.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item">
-              <img src="./default.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item">
-              <img src="./default.jpg" className="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
+        
       </div>
     </div>
   );
