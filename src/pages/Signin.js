@@ -20,6 +20,7 @@ const auth = getAuth(app);
 export default function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const signInWithGoogle = () => {
@@ -59,12 +60,15 @@ export default function Signin() {
                 const errorMessage = error.message;
                 // Update the error state to display to the user
                 setError(errorMessage);
+                setEmail('');
+                setPassword('');
             });
     }
 
     return (
         <>
             <h1>SignIn Page</h1>
+            {error && <div className="error-message">{error}</div>}
             <div>
                 <button onClick={signInWithGoogle} className="btn btn-primary">Sign in with Google</button>
                 <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
