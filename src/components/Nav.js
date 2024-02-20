@@ -3,8 +3,20 @@ import { useState, useEffect, useRef } from "react";
 import '../scss/_variables.scss';
 import '../scss/style.scss';
 import { Link } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function Nav() {
+    const auth = getAuth();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setIsLoggedIn(!!user); // Set isLoggedIn to true if user is not null
+        });
+
+        return () => unsubscribe();
+    }, [auth]);
+
     return (
         <nav className="navbar navbar-expand-xxl bg-primary ">
             <div className="container-fluid d-flex flex-column align-items-start ">
@@ -26,8 +38,15 @@ export default function Nav() {
 
                     </ul>
                 </div>
-                <button className="btn btn-primary"><Link to='signin'>Login</Link></button>
-                <button className="btn btn-primary"><Link to='profile'>Profile</Link></button>
+                {isLoggedIn ? (
+                    <button className="btn btn-primary">
+                        <Link to='/profile'>Profile</Link>
+                    </button>
+                ) : (
+                    <button className="btn btn-primary">
+                        <Link to='/signin'>Login</Link>
+                    </button>
+                )}
             </div>
 
         </nav>
