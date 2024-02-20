@@ -29,7 +29,7 @@ export default function Community() {
     ]
 
     return (
-        <div className="container-fluid custom-bg text-white py-5">
+        <div className="container-fluid custom-bg text-white py-5" id="community">
             <div className="container-fluid text-center px-5">
                 <div className="row justify-content-center">
                     <div className="container">

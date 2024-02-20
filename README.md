@@ -3,7 +3,7 @@
 ## Getting Started
 ## Technologies
 * **Frontend:** REACT, Bootstrap, SASS, Webpack, Babel
-* **Backend:** Django, Firebase, MongoDB
+* **Backend:** Express.JS, Firebase, MongoDB
 ### Dependencies
 Before beginning you need to have
 * Git
