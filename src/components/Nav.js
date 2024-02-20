@@ -30,7 +30,7 @@ export default function Nav() {
                             <a className="nav-link" href="#">Programs</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Blogs</a>
+                            <Link className="nav-link" to='blog'>Blogs</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Communities</a>

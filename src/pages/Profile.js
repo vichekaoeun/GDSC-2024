@@ -117,6 +117,9 @@ export default function Profile() {
                     <p>Username: {profileData.username}</p>
                     <p>Description: {profileData.description}</p>
                     <div>
+                        <div className="m-2">
+                            <u><b>Edit here</b></u>
+                        </div>
                         <form onSubmit={handleSubmit}>
                             <input type='text' id='username' placeholder="username" onChange={(e) => setUsername(e.target.value)} value={username} required></input>
                             <input type='text' id='description' placeholder="about me (max: 1000 chars)" onChange={(e) => setDescription(e.target.value)} value={description} required></input>
