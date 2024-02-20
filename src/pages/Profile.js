@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -20,6 +21,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [description, setDescription] = useState('');
+    const [user] = useAuthState(auth);
 
     const handleSignOut = () => {
         signOut(auth)
@@ -54,7 +56,7 @@ export default function Profile() {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ username, description })
+                    body: JSON.stringify({ username, description, email: user.email, uid: user.uid })
                 });
 
                 if (response.ok) {
@@ -75,11 +77,15 @@ export default function Profile() {
         }
     };
 
-
+    if (!user) {
+        return <p>Loading...</p>; // or show a loading indicator
+    }
 
     return (
         <>
             <h1>Profile</h1>
+            <p>Email: {user.email}</p>
+            <p>UID: {user.uid}</p>
             <button className="btn btn-primary" onClick={handleSignOut}>Logout</button>
             <Link to='/'>Return to home</Link>
             <div>

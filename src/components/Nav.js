@@ -27,6 +27,7 @@ export default function Nav() {
                     </ul>
                 </div>
                 <button className="btn btn-primary"><Link to='signin'>Login</Link></button>
+                <button className="btn btn-primary"><Link to='profile'>Profile</Link></button>
             </div>
 
         </nav>

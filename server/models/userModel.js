@@ -11,6 +11,15 @@ const userSchema = mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 1000
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    uid: {
+        type: String,
+        required: true,
+        unique: true
     }
 })
 
