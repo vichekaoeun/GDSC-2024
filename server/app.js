@@ -17,21 +17,21 @@ app.get('/blog', (req, res) => {
 })
 
 // GET from database
-app.get('/products', async (req, res) => {
+app.get('/profile', async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.status(200).json(products);
+    const user = await User.find({});
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
 })
 
 // GET by ID from database
-app.get('/products/:id', async (req, res) => {
+app.get('/profile/:uid', async (req, res) => {
   try {
-    const { id } = req.params;
-    const product = await Product.findById(id);
-    res.status(200).json(product);
+    const { uid } = req.params;
+    const user = await User.findOne({ uid: uid });
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
@@ -49,20 +49,23 @@ app.post('/profile', async (req, res) => {
 })
 
 // Update data in database
-app.put('/products/:id', async (req, res) => {
+app.put('/profile/:uid', async (req, res) => {
   try {
-    const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body);
-    // Cannot find product in database
-    if (!product) {
-      return res.status(404).json({ message: `cannot find product with ID ${id}` })
+    const { uid } = req.params;
+    const updatedUser = await User.findOneAndUpdate({ uid: uid }, req.body, { new: true });
+
+    // If the profile doesn't exist
+    if (!updatedUser) {
+      return res.status(404).json({ message: `Cannot find profile with username ${uid}` });
     }
-    const updatedProduct = await Product.findById(id);
-    res.status(500).json(updatedProduct);
+
+    // If the profile is successfully updated
+    res.status(200).json(updatedUser);
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    // If an error occurs during the update process
+    res.status(500).json({ message: error.message });
   }
-})
+});
 
 // Delete data from database
 app.delete('/products/:id', async (req, res) => {

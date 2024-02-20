@@ -24,6 +24,7 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [RetypePassword, setRetypePassword] = useState('');
     const [error, setError] = useState(null);
+    const [userUid, setUserUid] = useState(null);
     const navigate = useNavigate();
 
     const handleSignUp = (e) => {
@@ -37,10 +38,11 @@ export default function Signup() {
         createUserWithEmailAndPassword(auth, email, password)
             .then(cred => {
                 console.log(cred);
+                setUserUid(cred.user.uid);
                 setEmail('');
                 setPassword('');
                 setRetypePassword('');
-                navigate('/profile');
+                navigate(`/profile?uid=${userUid}`);
             })
             .catch((error) => {
                 const errorCode = error.code;
