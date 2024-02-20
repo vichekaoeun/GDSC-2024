@@ -27,10 +27,10 @@ app.get('/profile', async (req, res) => {
 })
 
 // GET by ID from database
-app.get('/profile/:username', async (req, res) => {
+app.get('/profile/:uid', async (req, res) => {
   try {
-    const { username } = req.params;
-    const user = await User.findOne({ username: username });
+    const { uid } = req.params;
+    const user = await User.findOne({ uid: uid });
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message })
@@ -49,14 +49,14 @@ app.post('/profile', async (req, res) => {
 })
 
 // Update data in database
-app.put('/profile/:username', async (req, res) => {
+app.put('/profile/:uid', async (req, res) => {
   try {
-    const { username } = req.params;
-    const updatedUser = await User.findOneAndUpdate({ username: username }, req.body, { new: true });
+    const { uid } = req.params;
+    const updatedUser = await User.findOneAndUpdate({ uid: uid }, req.body, { new: true });
 
     // If the profile doesn't exist
     if (!updatedUser) {
-      return res.status(404).json({ message: `Cannot find profile with username ${username}` });
+      return res.status(404).json({ message: `Cannot find profile with username ${uid}` });
     }
 
     // If the profile is successfully updated

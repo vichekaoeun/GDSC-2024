@@ -21,6 +21,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [description, setDescription] = useState('');
+    const [profileData, setProfileData] = useState(null);
     const [user] = useAuthState(auth);
 
     const handleSignOut = () => {
@@ -34,12 +35,34 @@ export default function Profile() {
             })
     }
 
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                // Check if user is authenticated
+                if (!user) return;
+
+                // Fetch profile data based on user's UID
+                const response = await fetch(`http://localhost:3001/profile/${user.uid}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setProfileData(data);
+                } else {
+                    throw new Error('Failed to fetch profile data');
+                }
+            } catch (error) {
+                console.error('Error fetching profile data:', error);
+            }
+        };
+
+        fetchProfile();
+    }, [user]);
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const checkResponse = await fetch(`http://localhost:3001/profile/${username}`, {
+            const checkResponse = await fetch(`http://localhost:3001/profile/${user.uid}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,7 +72,7 @@ export default function Profile() {
             if (checkResponse.ok) {
                 const existingProfile = await checkResponse.json();
                 const method = existingProfile ? 'PUT' : 'POST'; // Determine the HTTP method based on whether the profile exists
-                const url = existingProfile ? `http://localhost:3001/profile/${username}` : 'http://localhost:3001/profile';
+                const url = existingProfile ? `http://localhost:3001/profile/${user.uid}` : 'http://localhost:3001/profile';
 
                 const response = await fetch(url, {
                     method,
@@ -77,7 +100,7 @@ export default function Profile() {
         }
     };
 
-    if (!user) {
+    if (!user || !profileData) {
         return <p>Loading...</p>; // or show a loading indicator
     }
 
@@ -86,6 +109,9 @@ export default function Profile() {
             <h1>Profile</h1>
             <p>Email: {user.email}</p>
             <p>UID: {user.uid}</p>
+            <p>Username: {profileData.username}</p>
+            <p>Description: {profileData.description}</p>
+
             <button className="btn btn-primary" onClick={handleSignOut}>Logout</button>
             <Link to='/'>Return to home</Link>
             <div>
