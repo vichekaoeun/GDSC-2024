@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Nav from '../components/Nav';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -106,20 +107,26 @@ export default function Profile() {
 
     return (
         <>
-            <h1>Profile</h1>
-            <p>Email: {user.email}</p>
-            <p>UID: {user.uid}</p>
-            <p>Username: {profileData.username}</p>
-            <p>Description: {profileData.description}</p>
-
-            <button className="btn btn-primary" onClick={handleSignOut}>Logout</button>
-            <Link to='/'>Return to home</Link>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <input type='text' id='username' placeholder="username" onChange={(e) => setUsername(e.target.value)} value={username} required></input>
-                    <input type='text' id='description' placeholder="about me (max: 1000 chars)" onChange={(e) => setDescription(e.target.value)} value={description} required></input>
-                    <button type="submit" className="btn btn-primary">Save</button>
-                </form>
+                <Nav />
+            </div>
+            <div className="m-5 col text-center">
+                <h1>Let's know a bit more about you</h1>
+                <div>
+                    <p>Email: {user.email}</p>
+                    <p>Username: {profileData.username}</p>
+                    <p>Description: {profileData.description}</p>
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <input type='text' id='username' placeholder="username" onChange={(e) => setUsername(e.target.value)} value={username} required></input>
+                            <input type='text' id='description' placeholder="about me (max: 1000 chars)" onChange={(e) => setDescription(e.target.value)} value={description} required></input>
+                        </form>
+                        <button type="submit" className="btn btn-primary m-2">Save</button>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn btn-primary col-sm-1" onClick={handleSignOut}>Logout</button>
+                </div>
             </div>
         </>
     )

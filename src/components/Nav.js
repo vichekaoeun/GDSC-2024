@@ -20,7 +20,7 @@ export default function Nav() {
     return (
         <nav className="navbar navbar-expand-xxl bg-primary ">
             <div className="container-fluid d-flex flex-column align-items-start ">
-                <a className="navbar-brand" href="#">Therapy Talks</a>
+                <Link className="navbar-brand" to='/'>Therapy Talks</Link>
                 <div className="collapse navbar-collapse " >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
