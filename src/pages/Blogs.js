@@ -24,6 +24,12 @@ export default function Blog() {
     const [user] = useAuthState(auth);
     const [blogs, setBlogs] = useState([]);
 
+    const tags = [
+        "abc",
+        "abc",
+        "abc"
+    ]
+
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
@@ -63,16 +69,28 @@ export default function Blog() {
                 <Nav />
             </div>
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
+                    <button className="btn btn-primary" onClick={handlePost}>Create a Post</button>
+                </div>
                 {blogs.map(blog => (
                     <div className="card mb-4 m-5">
                         {/* Post Details */}
                         <div className="card-header">
-                            <small className="text-muted">Author: John Doe | Posted on: ${blog.date}</small>
+                            <small className="text-muted">Author: John Doe | Posted on: {new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
                         </div>
                         <div className="card-body">
-                            <h5 className="card-title">{blog.title}</h5>
+                            <h2 className="card-title">{blog.title}</h2>
+                            <div className="row mx-sm-2 mx-md-3 mb-2 mt-3">
+                                {/* Tags */}
+                                {blog.tags.map((tag, idx) => (
+                                    <div key={idx} className="col col-auto tag bg-danger text-white px-2 py-1 m-1 font-weight-bold rounded d-inline-block">
+                                        {tag}
+                                    </div>
+                                ))}
+                            </div>
                             <p className="card-text">{blog.content}</p>
                         </div>
+
                         <div className="p-4">
                             <u>Comments: 21</u>
                         </div>

@@ -11,14 +11,17 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    time: {
+    date: {
         type: Date,
         default: Date.now
     },
     content: {
         type: String,
         required: true
-    }
+    },
+    tags: [{
+        type: String
+    }]
 })
 
 const Blog = mongoose.model('Blog', blogSchema);
