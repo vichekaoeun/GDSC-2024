@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Nav from '../components/Nav';
 import { Link, useNavigate } from 'react-router-dom';
-import '../scss/style.scss';
 import '../scss/_variables.scss';
+import '../scss/style.scss';
 import './blog.css';
 import { initializeApp } from 'firebase/app';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
+import PostModal from '../components/PostModal';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -24,6 +25,7 @@ const auth = getAuth(app);
 export default function Blog() {
     const [user] = useAuthState(auth);
     const [blogs, setBlogs] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -44,18 +46,11 @@ export default function Blog() {
     }, []);
 
     const handlePost = async (postData) => {
-        try {
-            const response = await fetch(`http://localhost:3001/blog/${user.uid}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(postData)
-            });
+        setShowModal(true);
+    }
 
-        } catch (error) {
-            console.error('Error creating blog post:', error);
-        }
+    const closeModal = () => {
+        setShowModal(false);
     }
 
     return (
@@ -67,6 +62,7 @@ export default function Blog() {
                 <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
                     <button className="btn btn-primary" onClick={handlePost}>Create a Post</button>
                 </div>
+                {showModal && <PostModal closeModal={closeModal} />}
                 {blogs.map(blog => (
                     <div className="card mb-4 m-5">
                         {/* Post Details */}

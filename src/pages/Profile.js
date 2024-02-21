@@ -109,7 +109,7 @@ export default function Profile() {
             </div>
             <div className="m-5 col text-center">
                 <h1 style={{ fontSize: "60px", fontFamily: "Times New Roman", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" }}>Let's know a bit more about you</h1>
-                <div>
+                <div className="mt-5">
                     {profileData ? (
                         <div className="row gap-2 justify-content-center">
                             <div className="row justify-content-center gap-2">
@@ -132,8 +132,10 @@ export default function Profile() {
                         <p>Loading profile data...</p>
                     )}
                     <div >
-                        <div className="m-2">
-                            <u><b>Edit here</b></u>
+                        <div className="mb-3 mt-5">
+                            <u><b>
+                                <h2>Edit here</h2>
+                            </b></u>
                         </div>
                         <form className=" mx-auto pt-5 pb-1 rounded" style={{ backgroundColor: 'white', height: "520px", width: "600px", boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)" }} onSubmit={handleSubmit}>
                             <div style={{ paddingTop: "40px" }} >
