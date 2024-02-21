@@ -102,12 +102,12 @@ export default function Profile() {
     };
 
     return (
-        <>
+        <div style={{ backgroundColor: '#B9F1E7' }}>
             <div>
                 <Nav />
             </div>
             <div className="m-5 col text-center">
-                <h1>Let's know a bit more about you</h1>
+                <h1 style={{ fontSize:"60px", fontFamily: "Times New Roman", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)"}}>Let's know a bit more about you</h1>
                 <div>
                     {profileData ? (
                         <div>
@@ -119,21 +119,27 @@ export default function Profile() {
                     ) : (
                         <p>Loading profile data...</p>
                     )}
-                    <div>
+                    <div >
                         <div className="m-2">
                             <u><b>Edit here</b></u>
                         </div>
-                        <form onSubmit={handleSubmit}>
-                            <input type='text' id='username' placeholder="username" onChange={(e) => setUsername(e.target.value)} value={username} required></input>
-                            <input type='text' id='description' placeholder="about me (max: 1000 chars)" onChange={(e) => setDescription(e.target.value)} value={description} required></input>
-                            <button type="submit" className="btn btn-primary m-2">Save</button>
+                        <form className =" mx-auto pt-5 pb-1 rounded" style={{ backgroundColor: 'white', height : "520px", width: "600px",boxShadow:"0 0 5px rgba(0, 0, 0, 0.1)"}} onSubmit={handleSubmit}>
+                            <div style ={{paddingTop:"40px"}} >
+                                <input  type='text' id='username' placeholder="Username" style ={{ fontSize: "20px", borderRadius: "5px", height:"70px", width: "450px", paddingLeft: "15px",marginBottom: "20px"}} onChange={(e) => setUsername(e.target.value)} value={username} required></input>
+                            </div>
+
+                            <div>
+                                <input  type='text' id='description' placeholder="About me (max: 1000 chars)" style ={{ fontSize: "20px",borderRadius: "5px", height:"250px", width: "450px", paddingLeft: "15px",marginBottom: "10px",paddingBottom:"200px"}} onChange={(e) => setDescription(e.target.value)} value={description} required></input>
+                            </div>
+            
+                            <button type="submit" className="btn btn-danger m-2" style={{ height: "50px", width :"80px", fontSize: "20px",marginBottom:"20px"}}>Save</button>
                         </form>
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                    <button className="btn btn-primary col-sm-1" onClick={handleSignOut}>Logout</button>
+                <div className="row justify-content-center mx-3 my-3">
+                    <button className="btn btn-danger col-sm-1" onClick={handleSignOut}>Logout</button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

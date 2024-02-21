@@ -90,7 +90,7 @@ export default function Signup() {
                             <label htmlFor="text-retypepassword" className="form-label">Retype Password</label>
                             <input type="password" className="form-control" id="text-retypepassword" placeholder="Retype Password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-danger">Submit</button>
                     </form>
                 </div>
             </div>
