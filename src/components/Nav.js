@@ -6,28 +6,42 @@ import { Link } from 'react-router-dom';
 
 export default function Nav() {
     return (
-        <nav className="navbar navbar-expand-xxl bg-primary ">
-            <div className="container-fluid d-flex flex-column align-items-start ">
-                <a className="navbar-brand" href="#">Therapy Talks</a>
-                <div className="collapse navbar-collapse " >
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Our Mission</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Programs</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Blogs</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Communities</a>
-                        </li>
+        <nav className="navbar navbar-expand-xxl bg-primary sticky-top">
+            <div className = "container-fluid">
 
-                    </ul>
+            
+                <div className="row">
+                    <a className="navbar-brand col-md-auto" href="#" style={{fontFamily: "Times New Roman", fontSize: "50px" , fontWeight: "bold"}}>Therapy Talks</a>
+
                 </div>
-                <button className="btn btn-primary"><Link to='signin'>Login</Link></button>
+            
+
+                <div className ="row" style={{fontFamily: "Arial", fontSize: "20px" }}>
+                    <div className = "navbar-item my-auto col-md-auto">
+                        <a className="nav-link active"  href="#">Our Mission</a>
+                    </div>
+
+                    <div className = "navbar-item my-auto col-md-auto">
+                        <a className="nav-link active"  href="#">Programs</a>
+                    </div>
+
+                    <div className = "navbar-item my-auto col-md-auto">
+                        <a className="nav-link active"  href="#">Blogs</a>
+                    </div>
+
+                    <div className = "navbar-item my-auto col-md-auto">
+                        <a className="nav-link active"  href="#">Communities</a>
+                    </div>
+
+                    <div className = "navbar-item my-auto col-md-auto">
+                    <button className="btn btn-primary btn-lg login-button" style= {{borderRadius: "15px"}}><Link style ={{textDecoration: "none", color:"white" }} to="signin" >Login</Link></button>
+                    </div>
+
+                
+                </div>
             </div>
+              
+            
 
         </nav>
 

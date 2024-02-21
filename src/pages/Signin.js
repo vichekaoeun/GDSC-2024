@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -64,22 +66,28 @@ export default function Signin() {
 
     return (
         <>
-            <h1>SignIn Page</h1>
-            <div>
-                <button onClick={signInWithGoogle} className="btn btn-primary">Sign in with Google</button>
-                <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
+            <Nav />
+            <div className ="justify-content">
+                <h1>SignIn Page</h1>
+                <div>
+                    <button onClick={signInWithGoogle} className="btn btn-primary">Sign in with Google</button>
+                    <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
+                </div>
+                <div>
+                    <form onSubmit={handleSignIn}>
+                        <div>
+                            <input type="email" id="text-email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                            <input type="password" id="text-password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                        </div>
+                        <div>
+                            <button className="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div>
-                <form onSubmit={handleSignIn}>
-                    <div>
-                        <input type="email" id="text-email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                        <input type="password" id="text-password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                    </div>
-                    <div>
-                        <button className="btn btn-primary" type="submit">Login</button>
-                    </div>
-                </form>
-            </div>
+            
+            
+            <Footer />
         </>
     )
 }
