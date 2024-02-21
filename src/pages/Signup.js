@@ -4,6 +4,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
