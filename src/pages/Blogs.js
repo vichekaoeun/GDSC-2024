@@ -5,6 +5,8 @@ import '../scss/_variables.scss';
 import './blog.css';
 
 export default function Blog() {
+
+
     return (
         <div>
             <div>
