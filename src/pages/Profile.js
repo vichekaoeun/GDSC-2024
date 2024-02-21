@@ -114,7 +114,7 @@ export default function Profile() {
                         <div>
                             <p>Email: {user.email}</p>
                             <p>Username: {profileData.username}</p>
-                            <p>Description: {profileData.description}</p>
+                            <p>About me: {profileData.description}</p>
                             {/* Your edit form goes here */}
                         </div>
                     ) : (
