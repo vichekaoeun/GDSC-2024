@@ -47,9 +47,9 @@ export default function Nav() {
 
                     <div className="navbar-item my-auto col-md-auto">
                         {isLoggedIn ? (
-                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="profile" >Profile</Link></button>
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="/profile" >Profile</Link></button>
                         ) : (
-                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="signin" >Login</Link></button>
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="/signin" >Login</Link></button>
                         )}
                     </div>
 
