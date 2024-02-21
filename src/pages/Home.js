@@ -10,6 +10,8 @@ import AboutUs from '../components/About-Us';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
+import SingleProject from "../components/single-project";
+
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -36,12 +38,13 @@ export default function Home() {
     return (
         <div>
             <Nav />
-            <Content />
+            {/* <Content /> */}
             {/* Main Page */}
-            <Community />
+            {/* <Community /> */}
 
             {/* About Us page */}
-            {/* <AboutUs /> */}
+            <AboutUs />
+
 
             {/* <Test /> */}
             <Footer />

@@ -22,8 +22,14 @@ export default function Community() {
         "default.jpg"
     ];
 
+    const tags = [
+        "abc",
+        "abc",
+        "abc"
+    ]
+
     return (
-        <div className="container-fluid bg-secondary text-white py-5">
+        <div className="container-fluid custom-bg text-white py-5" id="community">
             <div className="container-fluid text-center px-5">
                 <div className="row justify-content-center">
                     <div className="container">
@@ -33,7 +39,7 @@ export default function Community() {
                                 <div className="input-group search-container">
                                     <input type="text" className="form-control" placeholder="Search" />
                                     <div className="input-group-append">
-                                        <button className="btn btn-primary" type="button">
+                                        <button className="btn btn-danger" type="button">
                                             <FontAwesomeIcon icon={faSearch} />
                                         </button>
                                     </div>
@@ -41,85 +47,64 @@ export default function Community() {
                             </div>
                         </div>
 
-                        <div className="row">
+                        <div className="row bg-primary rounded-4">
                             {/* Tags section */}
-                            <div className="col-md-6 col-lg-3 mx-auto mb-3 justify-content-center">
-                                <h2 className="mb-4">Tags</h2>
+                            <div className="col-md-6 col-lg-3 mx-auto mb-3 justify-content-center rounded">
+                                <h2 className="m-4">Popular Groups</h2>
                                 {items.map((item, idx) => (
-                                    <div key={idx} className="tag bg-primary text-white px-2 py-2 m-1 font-weight-bold rounded d-inline-block">
+                                    <div key={idx} className="tag bg-danger text-white px-3 py-2 m-1 font-weight-bold rounded-pill d-inline-block">
                                         {item}
                                     </div>
                                 ))}
                             </div>
 
                             {/* Groups/Communities section */}
-                            <div className="col-md-6 col-lg-9 mx-auto mb-3">
-                                <h2 className="mb-4">Groups/Communities</h2>
-                                <div className="container border">
-                                    <div className="row">
-                                        {/* date */}
-                                        <div className="col text-right col-auto">
-                                            <p className="m-0">author/date</p>
+                            <div className="col-md-6 col-lg-9 p-5 mb-3">
+                                <div className="container border bg-white rounded-3">
+                                    
+                                    <div className="row text-black">
+                                        <div className="col col-3 col-md-2 d-flex align-items-center justify-content-center">
+                                            profile pic
+                                        </div>
+
+                                        <div className="col">
+                                            <div className="row mt-2 mb-1 fw-bold fs-3">
+                                                    title
+                                            </div>
+                                            
+                                            <div className="row mb-1">
+                                                April 1st 2024
+                                            </div>
+                                            
+                                            <div className="row mb-1">
+                                                    username tag
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="row text-left">
-                                        {/* title */}
-                                        <div className="col text-left justify-content-start col-auto">
-                                            <h1 className="mb-0">That time I got reincarnated as a slime</h1>
-                                        </div>
-                                    </div>
+
+
                                 
-                                    <div className="row">
+                                    <div className="row mx-sm-2 mx-md-3 mb-2 mt-3">
                                         {/* tags */}
-                                        <div className="col-md-1  col-auto">
-                                            <p className="mb-1">tags</p>
-                                        </div>
+                                        {tags.map((tag, idx) => (
+                                            <div key={idx} className="col col-auto tag bg-danger text-white px-2 py-1 m-1 font-weight-bold rounded d-inline-block">
+                                                {tag}
+                                            </div>
+                                        ))}
                                     </div>
+
+
 
                                     {/* description */}
                                     <div className="row">
                                         <div className="col text-left">
-                                            <p className="text-left overflow-hidden text-truncate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae facere corporis tenetur harum velit a sequi recusandae. Corporis error facilis cupiditate, fugit nemo impedit, ipsum amet voluptatibus nesciunt incidunt eum nulla nobis.</p>
+                                            <p className="text-left overflow-hidden text-truncate text-black">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae facere corporis tenetur harum velit a sequi recusandae. Corporis error facilis cupiditate, fugit nemo impedit, ipsum amet voluptatibus nesciunt incidunt eum nulla nobis.</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="container border my-5">
-                                    <div className="row">
-                                        {/* date */}
-                                        <div className="col text-right col-auto">
-                                            <p className="m-0">author/date</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="row text-left">
-                                        {/* title */}
-                                        <div className="col text-left justify-content-start col-auto">
-                                            <h1 className="mb-0">That time I got reincarnated as a slime</h1>
-                                        </div>
-                                    </div>
-                                
-                                    <div className="row">
-                                        {/* tags */}
-                                        <div className="col-md-1  col-auto">
-                                            <p className="mb-1">tags</p>
-                                        </div>
-                                    </div>
-
-                                    {/* description */}
-                                    <div className="row">
-                                        <div className="col text-left">
-                                            <p className="text-left overflow-hidden text-truncate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae facere corporis tenetur harum velit a sequi recusandae. Corporis error facilis cupiditate, fugit nemo impedit, ipsum amet voluptatibus nesciunt incidunt eum nulla nobis.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        
-                        <div className="row">
+                                <div className="row mt-5">
                             <div className="container text-center">
                                 <nav aria-label="Page navigation example">
                                     <ul className="pagination justify-content-center">
@@ -131,8 +116,11 @@ export default function Community() {
                                     </ul>
                                 </nav>
                             </div>
-
                         </div>
+
+                            </div>
+                        </div>
+
                                 
                     </div>
                 </div>
