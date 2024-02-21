@@ -123,8 +123,8 @@ export default function Profile() {
                         <form onSubmit={handleSubmit}>
                             <input type='text' id='username' placeholder="username" onChange={(e) => setUsername(e.target.value)} value={username} required></input>
                             <input type='text' id='description' placeholder="about me (max: 1000 chars)" onChange={(e) => setDescription(e.target.value)} value={description} required></input>
+                            <button type="submit" className="btn btn-primary m-2">Save</button>
                         </form>
-                        <button type="submit" className="btn btn-primary m-2">Save</button>
                     </div>
                 </div>
                 <div className="row justify-content-center">
