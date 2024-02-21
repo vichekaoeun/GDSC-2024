@@ -47,6 +47,10 @@ export default function Route() {
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         },
@@ -57,6 +61,10 @@ export default function Route() {
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         }
