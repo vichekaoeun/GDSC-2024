@@ -1,11 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from '../components/Nav';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import './blog.css';
+import { initializeApp } from 'firebase/app';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
+
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 export default function Blog() {
+    const [user] = useAuthState(auth);
+    const [blogs, setBlogs] = useState([]);
 
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/blog');
+                if (response.ok) {
+                    const data = await response.json();
+                    setBlogs(data); // Update the state with fetched blogs
+                } else {
+                    throw new Error('Failed to fetch blogs');
+                }
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
+
+    const handlePost = async (postData) => {
+        try {
+            const response = await fetch(`http://localhost:3001/blog/${user.uid}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+
+        } catch (error) {
+            console.error('Error creating blog post:', error);
+        }
+    }
 
     return (
         <div>
@@ -13,35 +63,21 @@ export default function Blog() {
                 <Nav />
             </div>
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
-                <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
-                    <button className="btn btn-primary">Create a Post</button>
-                </div>
-                <div className="card mb-4 m-5">
-                    {/* Post Details */}
-                    <div className="card-header">
-                        <small className="text-muted">Author: John Doe | Posted on: October 5, 2023</small>
+                {blogs.map(blog => (
+                    <div className="card mb-4 m-5">
+                        {/* Post Details */}
+                        <div className="card-header">
+                            <small className="text-muted">Author: John Doe | Posted on: ${blog.date}</small>
+                        </div>
+                        <div className="card-body">
+                            <h5 className="card-title">{blog.title}</h5>
+                            <p className="card-text">{blog.content}</p>
+                        </div>
+                        <div className="p-4">
+                            <u>Comments: 21</u>
+                        </div>
                     </div>
-                    <div className="card-body">
-                        <h5 className="card-title">Post Title</h5>
-                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores saepe adipisci totam cum eum tempore veritatis odio, nulla est vero autem iusto ducimus, labore illo neque! Voluptatum non voluptates optio enim aliquid obcaecati aut similique. Voluptates consequuntur eius pariatur perspiciatis non dolores nihil quos, quod delectus ea laboriosam voluptatibus quasi. Necessitatibus illo, ipsam omnis placeat aperiam laboriosam autem rem, deleniti soluta tempore, accusantium tenetur?.</p>
-                    </div>
-                    <div className="p-4">
-                        <u>Comments: 5</u>
-                    </div>
-                </div>
-                <div className="card mb-4 m-5">
-                    {/* Post Details */}
-                    <div className="card-header">
-                        <small className="text-muted">Author: John Doe | Posted on: October 5, 2023</small>
-                    </div>
-                    <div className="card-body">
-                        <h5 className="card-title">Post Title</h5>
-                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores saepe adipisci totam cum eum tempore veritatis odio, nulla est vero autem iusto ducimus, labore illo neque! Voluptatum non voluptates optio enim aliquid obcaecati aut similique. Voluptates consequuntur eius pariatur perspiciatis non dolores nihil quos, quod delectus ea laboriosam voluptatibus quasi. Necessitatibus illo, ipsam omnis placeat aperiam laboriosam autem rem, deleniti soluta tempore, accusantium tenetur?.</p>
-                    </div>
-                    <div className="p-4">
-                        <u>Comments: 21</u>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )

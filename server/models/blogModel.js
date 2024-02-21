@@ -11,6 +11,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    time: {
+        type: Date,
+        default: Date.now
+    },
     content: {
         type: String,
         required: true
