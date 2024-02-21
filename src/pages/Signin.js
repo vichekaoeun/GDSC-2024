@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -84,13 +84,13 @@ export default function Signin() {
                 <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
             <div className="text-start"> {/* Add text-start class to move the button to the left */}
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-danger">Login</button>
             </div>
         </form>
 
         <div className="text-center mt-3">
             <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-            <button onClick={signInWithGoogle} className="btn btn-primary me-2"><FaGoogle /> Sign in with Google</button>
+            <button onClick={signInWithGoogle} className="btn btn-danger me-2"><FaGoogle /> Sign in with Google</button>
         </div>
     </div>
 </div>

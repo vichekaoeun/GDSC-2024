@@ -23,7 +23,7 @@ export default function Nav() {
 
             
                 <div className="row">
-                    <a className="navbar-brand col-md-auto" href="#" style={{fontFamily: "Times New Roman", fontSize: "50px" , fontWeight: "bold"}}>Therapy Talks</a>
+                    <Link className="navbar-brand col-md-auto" to="/" style={{fontFamily: "Times New Roman", fontSize: "50px" , fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)"}}>Therapy Talks</Link>
 
                 </div>
             
@@ -46,7 +46,11 @@ export default function Nav() {
                     </div>
 
                     <div className = "navbar-item my-auto col-md-auto">
-                    <button className="btn btn-primary btn-lg login-button" style= {{borderRadius: "15px"}}><Link style ={{textDecoration: "none", color:"white" }} to="signin" >Login</Link></button>
+                    {isLoggedIn ? (
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="profile" >Profile</Link></button>
+                        ) : (
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="signin" >Login</Link></button>
+                        )}
                     </div>
 
                 

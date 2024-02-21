@@ -4,8 +4,6 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -92,7 +90,7 @@ export default function Signup() {
                             <label htmlFor="text-retypepassword" className="form-label">Retype Password</label>
                             <input type="password" className="form-control" id="text-retypepassword" placeholder="Retype Password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-danger">Submit</button>
                     </form>
                 </div>
             </div>
