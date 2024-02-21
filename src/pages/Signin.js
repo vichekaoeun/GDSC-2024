@@ -5,8 +5,6 @@ import Footer from "../components/Footer";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -69,33 +67,33 @@ export default function Signin() {
 
     return (
         <>
-        <Nav />
+            <Nav />
 
-<div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
-    <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
-        <h1 className="mb-4">Sign In</h1>
-        <form onSubmit={handleSignIn}>
-            <div className="mb-3">
-                <label htmlFor="text-email" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="text-password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <div className="text-start"> {/* Add text-start class to move the button to the left */}
-                <button type="submit" className="btn btn-primary">Login</button>
-            </div>
-        </form>
+            <div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
+                <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
+                    <h1 className="mb-4">Sign In</h1>
+                    <form onSubmit={handleSignIn}>
+                        <div className="mb-3">
+                            <label htmlFor="text-email" className="form-label">Email address</label>
+                            <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="text-password" className="form-label">Password</label>
+                            <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        </div>
+                        <div className="text-start"> {/* Add text-start class to move the button to the left */}
+                            <button type="submit" className="btn btn-primary">Login</button>
+                        </div>
+                    </form>
 
-        <div className="text-center mt-3">
-            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-            <button onClick={signInWithGoogle} className="btn btn-primary me-2"><FaGoogle /> Sign in with Google</button>
-        </div>
-    </div>
-</div>
+                    <div className="text-center mt-3">
+                        <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+                        <button onClick={signInWithGoogle} className="btn btn-primary me-2"><FaGoogle /> Sign in with Google</button>
+                    </div>
+                </div>
+            </div>
 
-        <Footer />
+            <Footer />
 
         </>
     )
