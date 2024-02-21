@@ -111,10 +111,21 @@ export default function Profile() {
                 <h1 style={{ fontSize: "60px", fontFamily: "Times New Roman", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" }}>Let's know a bit more about you</h1>
                 <div>
                     {profileData ? (
-                        <div>
-                            <p>Email: {user.email}</p>
-                            <p>Username: {profileData.username}</p>
-                            <p>About me: {profileData.description}</p>
+                        <div className="row gap-2 justify-content-center">
+                            <div className="row justify-content-center gap-2">
+                                <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
+                                    <u><h4>Email: </h4></u>
+                                    <p>{user.email}</p>
+                                </div>
+                                <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
+                                    <u><h4>Username: </h4></u>
+                                    <p>{profileData.username}</p>
+                                </div>
+                            </div>
+                            <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
+                                <u><h4>About me: </h4></u>
+                                <p>{profileData.description}</p>
+                            </div>
                             {/* Your edit form goes here */}
                         </div>
                     ) : (
