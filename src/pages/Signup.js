@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -52,17 +54,31 @@ export default function Signup() {
 
     return (
         <>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSignUp}>
-                <div>
-                    <input type="email" id="text-email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                    <input type="password" id="text-password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                    <input type="password" id="text-retypepassword" placeholder="retype-password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required></input>
-                </div>
-                <div>
-                    <button className="btn btn-primary" type="submit">Submit</button>
-                </div>
-            </form>
+        <Nav />
+<div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
+    <div className="col-8 mx-auto p-5 rounded bg-white justify c">
+        <h1 className="mb-4">Sign Up</h1>
+        <form onSubmit={handleSignUp}>
+            <div className="mb-3">
+                <label htmlFor="text-email" className="form-label">Email address</label>
+                <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="text-password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="text-retypepassword" className="form-label">Retype Password</label>
+                <input type="password" className="form-control" id="text-retypepassword" placeholder="Retype Password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required />
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<Footer />
         </>
     )
 }

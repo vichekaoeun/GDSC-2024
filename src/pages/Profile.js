@@ -107,6 +107,9 @@ export default function Profile() {
 
     return (
         <>
+            <h1>Profile</h1>
+            <button className="btn btn-primary">Logout</button>
+            <Link to='/'>Return to home</Link>
             <div>
                 <Nav />
             </div>
