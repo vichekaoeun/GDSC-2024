@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from '../components/Nav';
+import { Link, useNavigate } from 'react-router-dom';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import './blog.css';
@@ -23,12 +24,6 @@ const auth = getAuth(app);
 export default function Blog() {
     const [user] = useAuthState(auth);
     const [blogs, setBlogs] = useState([]);
-
-    const tags = [
-        "abc",
-        "abc",
-        "abc"
-    ]
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -92,7 +87,7 @@ export default function Blog() {
                         </div>
 
                         <div className="p-4">
-                            <u>Comments: 21</u>
+                            <Link to='/post'>Comments: </Link>
                         </div>
                     </div>
                 ))}
