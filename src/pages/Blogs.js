@@ -3,7 +3,6 @@ import Nav from '../components/Nav';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import './blog.css';
-import SingleProject from "../components/single-project";
 
 export default function Blog() {
     return (
@@ -12,6 +11,9 @@ export default function Blog() {
                 <Nav />
             </div>
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
+                    <button className="btn btn-primary">Create a Post</button>
+                </div>
                 <div className="card mb-4 m-5">
                     {/* Post Details */}
                     <div className="card-header">
