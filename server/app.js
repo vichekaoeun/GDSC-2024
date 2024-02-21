@@ -4,16 +4,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const Product = require('./models/testModel');
 const User = require('./models/userModel');
+const Blog = require('./models/blogModel');
 const cors = require('cors');
 
 app.use(cors());
 
 app.get('/', (req, res) => {
   res.send("Hello")
-})
-
-app.get('/blog', (req, res) => {
-  res.send('Hello blog!')
 })
 
 // GET from database
@@ -76,10 +73,46 @@ app.delete('/products/:id', async (req, res) => {
       return res.status(404).json({ message: `cannot find product with ID ${id}` })
     }
     res.status(200).json(product);
-  } catch {
+  } catch (error) {
     res.status(500).json({ message: error.message })
   }
 })
+
+// POST for blog
+app.post('/blog', async (req, res) => {
+  try {
+    const blog = await Blog.create(req.body)
+    res.status(200).json(blog);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message })
+  }
+})
+
+//GET blog posts
+app.get('/blog', async (req, res) => {
+  try {
+    const blog = await Blog.find({});
+    res.status(200).json(blog);
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+//DELTE a blog post
+app.delete('/blog/:bid', async (req, res) => {
+  try {
+    const { bid } = req.params;
+    const blog = await Blog.findOneAndDelete({ bid: bid });
+    if (!blog) {
+      return res.status(404).json({ message: `Cannot find blog with ID ${bid}` });
+    }
+    res.status(200).json(blog); // Return the deleted blog
+  } catch (error) { // Define the error parameter
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 // Set up mongoose connection
 const mongoose = require("mongoose");

@@ -10,7 +10,7 @@ Before beginning you need to have
 * Node.JS
 ### File structure
 * All frontend development works on: *src* folder
-* All backend development works on: *api* folder
+* All backend development works on: *server* folder
 * **Dont mess with *dist* folder**
 ### Installing
 

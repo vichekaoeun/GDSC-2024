@@ -19,45 +19,43 @@ export default function Nav() {
 
     return (
         <nav className="navbar navbar-expand-xxl bg-primary sticky-top">
-            <div className = "container-fluid">
+            <div className="container-fluid">
 
-            
+
                 <div className="row">
                     <Link className="navbar-brand col-md-auto" to="/" style={{fontFamily: "Times New Roman", fontSize: "50px" , fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)"}}>Therapy Talks</Link>
 
                 </div>
-            
 
-                <div className ="row" style={{fontFamily: "Arial", fontSize: "20px" }}>
-                    <div className = "navbar-item my-auto col-md-auto">
-                        <a className="nav-link active"  href="#">Our Mission</a>
+
+                <div className="row" style={{ fontFamily: "Arial", fontSize: "20px" }}>
+                    <div className="navbar-item my-auto col-md-auto">
+                        <a className="nav-link active" href="#">Our Mission</a>
                     </div>
 
-                    <div className = "navbar-item my-auto col-md-auto">
-                        <a className="nav-link active"  href="#">Programs</a>
+                    <div className="navbar-item my-auto col-md-auto">
+                        <a className="nav-link active" href="#">Programs</a>
                     </div>
 
-                    <div className = "navbar-item my-auto col-md-auto">
-                        <a className="nav-link active"  href="#">Blogs</a>
+                    <div className="navbar-item my-auto col-md-auto">
+                        <Link className="nav-link active" to="/blog">Blogs</Link>
                     </div>
 
-                    <div className = "navbar-item my-auto col-md-auto">
-                        <a className="nav-link active"  href="#">Communities</a>
+                    <div className="navbar-item my-auto col-md-auto">
+                        <a className="nav-link active" href="#">Communities</a>
                     </div>
 
-                    <div className = "navbar-item my-auto col-md-auto">
-                    {isLoggedIn ? (
-                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="profile" >Profile</Link></button>
+                    <div className="navbar-item my-auto col-md-auto">
+                        {isLoggedIn ? (
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="/profile" >Profile</Link></button>
                         ) : (
-                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="signin" >Login</Link></button>
+                            <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="/signin" >Login</Link></button>
                         )}
                     </div>
 
-                
+
                 </div>
             </div>
-              
-            
 
         </nav>
 
