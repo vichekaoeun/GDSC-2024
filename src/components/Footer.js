@@ -31,7 +31,7 @@ export default function Footer() {
                         <div className="row w-100">
                             <div className="col-5"></div>
                             <div className="row gap-2 col-6">
-                                <input type='email' id='text-email' className="form-control" placeholder="Email:"></input>
+                                <input type='email' id='text-email-form' className="form-control" placeholder="Email:"></input>
                                 <input type='text' id='text-box' className="form-control" placeholder="Subject:"></input>
                             </div>
                         </div>
@@ -46,12 +46,12 @@ export default function Footer() {
                 </div>
             </div>
             <div className="col text-center">
-                <h1 className="roboto-regular">Other Links</h1>
+                <h1 className="roboto-regular fs-1">Other Links</h1>
                 <ul>
-                    <li className="list-group-item fs-2"><Link to='/about'>About Us</Link></li>
-                    <li className="list-group-item fs-2"><Link to='/sponsors'>Sponsors</Link></li>
-                    <li className="list-group-item fs-2"><Link to='/partners'>Partners</Link></li>
-                    <li className="list-group-item fs-2"><Link to='/policy'>Terms of Service</Link></li>
+                    <li className="list-group-item fs-1"><Link to='/about'>About Us</Link></li>
+                    <li className="list-group-item fs-1"><Link to='/sponsors'>Sponsors</Link></li>
+                    <li className="list-group-item fs-1"><Link to='/partners'>Partners</Link></li>
+                    <li className="list-group-item fs-1"><Link to='/policy'>Terms of Service</Link></li>
                 </ul>
             </div>
         </div>

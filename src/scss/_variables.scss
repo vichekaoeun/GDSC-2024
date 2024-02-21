@@ -6,6 +6,20 @@ $primary: #01CDA9;
 $secondary: #353535;
 $outline: #CCCCCC;
 
+$custom-color: #242038; // Define your custom color here
+
+.custom-btn {
+  background-color: $custom-color;
+  border-color: $custom-color; // Optional: Set border color same as background color for a solid color button
+}
+
+.custom-btn:hover {
+  background-color: darken($custom-color, 10%); // Darken the color slightly on hover
+}
+
+.custom-bg {
+    background-color: $custom-color;
+  }
 
 
 // Required

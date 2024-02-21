@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { FaGoogle } from 'react-icons/fa'; // Import Google icon
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
@@ -66,28 +69,34 @@ export default function Signin() {
 
     return (
         <>
-            <Nav />
-            <div className ="justify-content">
-                <h1>SignIn Page</h1>
-                <div>
-                    <button onClick={signInWithGoogle} className="btn btn-primary">Sign in with Google</button>
-                    <button className="btn btn-primary"><Link to='/signup'>Sign Up</Link></button>
-                </div>
-                <div>
-                    <form onSubmit={handleSignIn}>
-                        <div>
-                            <input type="email" id="text-email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                            <input type="password" id="text-password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                        </div>
-                        <div>
-                            <button className="btn btn-primary" type="submit">Login</button>
-                        </div>
-                    </form>
-                </div>
+        <Nav />
+
+<div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
+    <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
+        <h1 className="mb-4">Sign In</h1>
+        <form onSubmit={handleSignIn}>
+            <div className="mb-3">
+                <label htmlFor="text-email" className="form-label">Email address</label>
+                <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
-            
-            
-            <Footer />
+            <div className="mb-3">
+                <label htmlFor="text-password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </div>
+            <div className="text-start"> {/* Add text-start class to move the button to the left */}
+                <button type="submit" className="btn btn-primary">Login</button>
+            </div>
+        </form>
+
+        <div className="text-center mt-3">
+            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+            <button onClick={signInWithGoogle} className="btn btn-primary me-2"><FaGoogle /> Sign in with Google</button>
+        </div>
+    </div>
+</div>
+
+        <Footer />
+
         </>
     )
 }

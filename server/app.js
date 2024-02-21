@@ -1,42 +1,85 @@
-var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+const Product = require('./models/testModel');
+const User = require('./models/userModel');
+const cors = require('cors');
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(cors());
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+app.get('/', (req, res) => {
+  res.send("Hello")
+})
+
+app.get('/blog', (req, res) => {
+  res.send('Hello blog!')
+})
+
+// GET from database
+app.get('/profile', async (req, res) => {
+  try {
+    const user = await User.find({});
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+// GET by ID from database
+app.get('/profile/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const user = await User.findOne({ uid: uid });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+// POST to database
+app.post('/profile', async (req, res) => {
+  try {
+    const user = await User.create(req.body)
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message })
+  }
+})
+
+// Update data in database
+app.put('/profile/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const updatedUser = await User.findOneAndUpdate({ uid: uid }, req.body, { new: true });
+
+    // If the profile doesn't exist
+    if (!updatedUser) {
+      return res.status(404).json({ message: `Cannot find profile with username ${uid}` });
+    }
+
+    // If the profile is successfully updated
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    // If an error occurs during the update process
+    res.status(500).json({ message: error.message });
+  }
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+// Delete data from database
+app.delete('/products/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findByIdAndDelete(id);
+    if (!product) {
+      return res.status(404).json({ message: `cannot find product with ID ${id}` })
+    }
+    res.status(200).json(product);
+  } catch {
+    res.status(500).json({ message: error.message })
+  }
+})
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
@@ -45,7 +88,15 @@ const mongoDB = "mongodb+srv://vichekaoeun:bQLgz9LQ3z6fst43@cluster0.rnwirof.mon
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(mongoDB);
+  await mongoose.connect(mongoDB)
+    .then(() => {
+      console.log('Database Connected!');
+      app.listen(3001, () => {
+        console.log(`Running on port 3001`);
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 }
-
 module.exports = app;

@@ -8,6 +8,7 @@ import Partners from "../pages/Partners";
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import Profile from "../pages/Profile";
+import Blog from "../pages/Blogs";
 
 export default function Route() {
     const router = createBrowserRouter([
@@ -36,12 +37,20 @@ export default function Route() {
             element: <Profile />
         },
         {
+            path: '/blog',
+            element: <Blog />
+        },
+        {
             path: '/signup',
             element: <Signup />,
             children: [
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         },
@@ -52,6 +61,10 @@ export default function Route() {
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         }
