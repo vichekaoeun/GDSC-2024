@@ -31,7 +31,7 @@ export default function Footer() {
                         <div className="row w-100">
                             <div className="col-5"></div>
                             <div className="row gap-2 col-6">
-                                <input type='email' id='text-email' className="form-control" placeholder="Email:"></input>
+                                <input type='email' id='text-email-form' className="form-control" placeholder="Email:"></input>
                                 <input type='text' id='text-box' className="form-control" placeholder="Subject:"></input>
                             </div>
                         </div>

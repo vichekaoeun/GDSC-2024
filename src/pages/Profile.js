@@ -101,24 +101,24 @@ export default function Profile() {
         }
     };
 
-    if (!user || !profileData) {
-        return <p>Loading...</p>; // or show a loading indicator
-    }
-
     return (
         <>
-            <h1>Profile</h1>
-            <button className="btn btn-primary">Logout</button>
-            <Link to='/'>Return to home</Link>
             <div>
                 <Nav />
             </div>
             <div className="m-5 col text-center">
                 <h1>Let's know a bit more about you</h1>
                 <div>
-                    <p>Email: {user.email}</p>
-                    <p>Username: {profileData.username}</p>
-                    <p>Description: {profileData.description}</p>
+                    {profileData ? (
+                        <div>
+                            <p>Email: {user.email}</p>
+                            <p>Username: {profileData.username}</p>
+                            <p>Description: {profileData.description}</p>
+                            {/* Your edit form goes here */}
+                        </div>
+                    ) : (
+                        <p>Loading profile data...</p>
+                    )}
                     <div>
                         <div className="m-2">
                             <u><b>Edit here</b></u>
