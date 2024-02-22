@@ -8,6 +8,7 @@ import { initializeApp } from 'firebase/app';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
 import PostModal from '../components/PostModal';
+import { CircularProgress } from '@mui/material';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -26,9 +27,12 @@ export default function Blog() {
     const [user] = useAuthState(auth);
     const [blogs, setBlogs] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchBlogs = async () => {
+            setLoading(true);
             try {
                 const response = await fetch('http://localhost:3001/blog');
                 if (response.ok) {
@@ -39,6 +43,9 @@ export default function Blog() {
                 }
             } catch (error) {
                 console.error('Error fetching blogs:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false); // Set loading to false when data fetching is completed
             }
         };
 
@@ -55,15 +62,21 @@ export default function Blog() {
 
     return (
         <div>
-            
+
             <Nav />
-        
+
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
                     <button className="btn btn-danger" onClick={handlePost}>Create a Post</button>
                 </div>
                 {showModal && <PostModal closeModal={closeModal} />}
-                {blogs.map(blog => (
+                {error && <div className="alert alert-danger m-5">{error}</div>}
+                {loading && (
+                    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '200px' }}>
+                        <CircularProgress />
+                    </div>
+                )}
+                {!loading && !error && blogs.map(blog => (
                     <div className="card mb-4 m-5">
                         {/* Post Details */}
                         <div className="card-header">

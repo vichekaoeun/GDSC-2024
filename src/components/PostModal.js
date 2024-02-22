@@ -29,9 +29,12 @@ export default function PostModal({ closeModal }) {
                             components={animatedComponents}
                             isMulti
                             options={[
-                                { value: 'chocolate', label: 'Chocolate' },
-                                { value: 'strawberry', label: 'Strawberry' },
-                                { value: 'vanilla', label: 'Vanilla' }
+                                { value: 'addiction', label: 'Addiction' },
+                                { value: 'disorder', label: 'Disorder' },
+                                { value: 'depression', label: 'Depression' },
+                                { value: 'question', label: 'Question' },
+                                { value: 'therapy', label: 'Therapy' },
+                                { value: 'mood', label: 'Mood' },
                             ]}
                         />
                     </div>

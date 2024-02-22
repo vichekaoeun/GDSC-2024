@@ -104,9 +104,7 @@ export default function Profile() {
 
     return (
         <div style={{ backgroundColor: '#B9F1E7' }}>
-            <div>
-                <Nav />
-            </div>
+            <Nav />
             <div className="m-5 col text-center">
                 <h1 style={{ fontSize: "60px", fontFamily: "Times New Roman", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)" }}>Let's know a bit more about you</h1>
                 <div className="mt-5">
