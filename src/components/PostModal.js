@@ -23,6 +23,7 @@ export default function PostModal({ closeModal }) {
                         <input type="text" className="form-control" id="blog-title" placeholder="Post Title"></input>
                     </div>
                     <div className="form-group mt-3 mb-3">
+                        <label>Tags</label>
                         <Select
                             closeMenuOnSelect={false}
                             components={animatedComponents}
@@ -36,8 +37,8 @@ export default function PostModal({ closeModal }) {
                     </div>
 
                     <div className="form-group">
-                        <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write something here..."></textarea>
+                        <label for="blog-content">Content</label>
+                        <textarea className="form-control" id="blog-content" rows="3" placeholder="Write something here..."></textarea>
                     </div>
                     <button className="btn btn-primary mt-5">Submit</button>
                 </form>
