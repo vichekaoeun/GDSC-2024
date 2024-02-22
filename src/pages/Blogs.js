@@ -60,12 +60,12 @@ export default function Blog() {
 
     return (
         <div>
-            <div>
-                <Nav />
-            </div>
+            
+            <Nav />
+        
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
-                    <button className="btn btn-primary" onClick={handlePost}>Create a Post</button>
+                    <button className="btn btn-danger" onClick={handlePost}>Create a Post</button>
                 </div>
                 {blogs.map(blog => (
                     <div className="card mb-4 m-5">
