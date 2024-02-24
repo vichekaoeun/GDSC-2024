@@ -39,11 +39,12 @@ export default function Home() {
     return (
         <div>
             <Nav />
-            {/* <Content /> */}
+            <Content />
             {/* Main Page */}
-            {/* <Community /> */}
+            <Community />
 
             {/* About Us page */}
+            {/*<AboutUs /> */}
             {/* <AboutUs /> */}
 
             <Sponsors />

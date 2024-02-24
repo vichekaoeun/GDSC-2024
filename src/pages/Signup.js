@@ -24,7 +24,6 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [RetypePassword, setRetypePassword] = useState('');
     const [error, setError] = useState(null);
-    const [userUid, setUserUid] = useState(null);
     const navigate = useNavigate();
 
     const handleSignUp = (e) => {
@@ -38,13 +37,33 @@ export default function Signup() {
         createUserWithEmailAndPassword(auth, email, password)
             .then(cred => {
                 console.log(cred);
-                setUserUid(cred.user.uid);
-                setEmail('');
-                setPassword('');
-                setRetypePassword('');
-                navigate(`/profile?uid=${userUid}`);
+
+                // Extract user information from the credential object
+                const { email, uid } = cred.user;
+
+                // Make a POST request to your backend server to add user profile data
+                fetch('http://localhost:3001/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, uid })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('User profile created successfully');
+                            navigate('/profile');
+                        } else {
+                            throw new Error('Failed to create user profile');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error creating user profile:', error);
+                    });
+                navigate('/profile');
             })
             .catch((error) => {
+                console.error('Error signing up:', error);
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 // Update the error state to display to the user
@@ -54,31 +73,31 @@ export default function Signup() {
 
     return (
         <>
-        <Nav />
-<div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
-    <div className="col-8 mx-auto p-5 rounded bg-white justify c">
-        <h1 className="mb-4">Sign Up</h1>
-        <form onSubmit={handleSignUp}>
-            <div className="mb-3">
-                <label htmlFor="text-email" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <Nav />
+            <div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
+                <div className="col-8 mx-auto p-5 rounded bg-white justify c">
+                    <h1 className="mb-4">Sign Up</h1>
+                    <form onSubmit={handleSignUp}>
+                        <div className="mb-3">
+                            <label htmlFor="text-email" className="form-label">Email address</label>
+                            <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="text-password" className="form-label">Password</label>
+                            <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="text-retypepassword" className="form-label">Retype Password</label>
+                            <input type="password" className="form-control" id="text-retypepassword" placeholder="Retype Password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required />
+                        </div>
+                        <button type="submit" className="btn btn-danger">Submit</button>
+                    </form>
+                </div>
             </div>
-            <div className="mb-3">
-                <label htmlFor="text-password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="text-retypepassword" className="form-label">Retype Password</label>
-                <input type="password" className="form-control" id="text-retypepassword" placeholder="Retype Password" value={RetypePassword} onChange={(e) => setRetypePassword(e.target.value)} required />
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-    </div>
-</div>
 
 
 
-<Footer />
+            <Footer />
         </>
     )
 }

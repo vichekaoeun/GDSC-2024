@@ -23,6 +23,7 @@ const auth = getAuth(app);
 export default function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const signInWithGoogle = () => {
@@ -67,33 +68,35 @@ export default function Signin() {
 
     return (
         <>
-        <Nav />
+            <Nav />
 
-<div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
-    <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
-        <h1 className="mb-4">Sign In</h1>
-        <form onSubmit={handleSignIn}>
-            <div className="mb-3">
-                <label htmlFor="text-email" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="text-password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <div className="text-start"> {/* Add text-start class to move the button to the left */}
-                <button type="submit" className="btn btn-primary">Login</button>
-            </div>
-        </form>
+            <div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
+                <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
+                    <h1 className="mb-4">Sign In</h1>
+                    <form onSubmit={handleSignIn}>
+                        <div className="mb-3">
+                            <label htmlFor="text-email" className="form-label">Email address</label>
+                            <input type="email" className="form-control" id="text-email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="text-password" className="form-label">Password</label>
+                            <input type="password" className="form-control" id="text-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        </div>
+                        <div className="text-start"> {/* Add text-start class to move the button to the left */}
+                            <button type="submit" className="btn btn-danger">Login</button>
+                        </div>
+                    </form>
 
-        <div className="text-center mt-3">
-            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-            <button onClick={signInWithGoogle} className="btn btn-primary me-2"><FaGoogle /> Sign in with Google</button>
-        </div>
-    </div>
-</div>
+                    {error && <div className="alert alert-danger mt-3">{error}</div>}
 
-        <Footer />
+                    <div className="text-center mt-3">
+                        <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+                        <button onClick={signInWithGoogle} className="btn btn-danger me-2"><FaGoogle /> Sign in with Google</button>
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
 
         </>
     )

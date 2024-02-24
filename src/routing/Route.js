@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import Profile from "../pages/Profile";
 import Blog from "../pages/Blogs";
+import Post from '../pages/Post';
 
 export default function Route() {
     const router = createBrowserRouter([
@@ -41,12 +42,20 @@ export default function Route() {
             element: <Blog />
         },
         {
+            path: '/post',
+            element: <Post />
+        },
+        {
             path: '/signup',
             element: <Signup />,
             children: [
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         },
@@ -57,6 +66,10 @@ export default function Route() {
                 {
                     path: 'profile',
                     element: <Profile />
+                },
+                {
+                    path: 'blog',
+                    element: <Blog />
                 }
             ]
         }

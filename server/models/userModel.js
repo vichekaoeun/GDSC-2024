@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const userSchema = mongoose.Schema({
     username: {
         type: String,
-        required: [true, "Please enter a username"]
+        default: "user"
     },
     description: {
         type: String,
