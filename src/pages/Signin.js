@@ -23,6 +23,7 @@ const auth = getAuth(app);
 export default function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const signInWithGoogle = () => {
@@ -85,6 +86,8 @@ export default function Signin() {
                             <button type="submit" className="btn btn-danger">Login</button>
                         </div>
                     </form>
+
+                    {error && <div className="alert alert-danger mt-3">{error}</div>}
 
                     <div className="text-center mt-3">
                         <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>

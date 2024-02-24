@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Nav from '../components/Nav';
 import { Link, useNavigate } from 'react-router-dom';
-import '../scss/style.scss';
 import '../scss/_variables.scss';
+import '../scss/style.scss';
 import './blog.css';
 import { initializeApp } from 'firebase/app';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
+import PostModal from '../components/PostModal';
+import { CircularProgress } from '@mui/material';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -24,9 +26,13 @@ const auth = getAuth(app);
 export default function Blog() {
     const [user] = useAuthState(auth);
     const [blogs, setBlogs] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchBlogs = async () => {
+            setLoading(true);
             try {
                 const response = await fetch('http://localhost:3001/blog');
                 if (response.ok) {
@@ -37,6 +43,9 @@ export default function Blog() {
                 }
             } catch (error) {
                 console.error('Error fetching blogs:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false); // Set loading to false when data fetching is completed
             }
         };
 
@@ -44,30 +53,30 @@ export default function Blog() {
     }, []);
 
     const handlePost = async (postData) => {
-        try {
-            const response = await fetch(`http://localhost:3001/blog/${user.uid}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(postData)
-            });
+        setShowModal(true);
+    }
 
-        } catch (error) {
-            console.error('Error creating blog post:', error);
-        }
+    const closeModal = () => {
+        setShowModal(false);
     }
 
     return (
         <div>
-            
+
             <Nav />
-        
+
             <div className="post-bg rounded m-5 min-vh-100" style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="mx-5 mt-3 row" style={{ width: '10rem' }}>
                     <button className="btn btn-danger" onClick={handlePost}>Create a Post</button>
                 </div>
-                {blogs.map(blog => (
+                {showModal && <PostModal closeModal={closeModal} />}
+                {error && <div className="alert alert-danger m-5">{error}</div>}
+                {loading && (
+                    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '200px' }}>
+                        <CircularProgress />
+                    </div>
+                )}
+                {!loading && !error && blogs.map(blog => (
                     <div className="card mb-4 m-5">
                         {/* Post Details */}
                         <div className="card-header">
