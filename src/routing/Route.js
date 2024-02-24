@@ -10,6 +10,7 @@ import Signin from "../pages/Signin";
 import Profile from "../pages/Profile";
 import Blog from "../pages/Blogs";
 import Post from '../pages/Post';
+import Mission from '../pages/Mission';
 
 export default function Route() {
     const router = createBrowserRouter([
@@ -44,6 +45,10 @@ export default function Route() {
         {
             path: '/post',
             element: <Post />
+        },
+        {
+            path: '/mission',
+            element: <Mission />
         },
         {
             path: '/signup',
