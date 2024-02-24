@@ -1,24 +1,24 @@
 import React from 'react';
 
 export default function Sponsors() {
-//   const sponsors = [
-//     {
-//       id: 1,
-//       name: 'Sponsor One',
-//       logo: 'logo',
-//     },
-//     {
-//       id: 2,
-//       name: 'Sponsor Two',
-//       logo: 'logo',
-//     },
-//   ];
+  const sponsors = [
+    {
+      id: 1,
+      name: 'Sponsor One',
+      logo: 'logo',
+    },
+    {
+      id: 2,
+      name: 'Sponsor Two',
+      logo: 'logo',
+    },
+  ];
 
   return (
     <div className="container m-5">
       <h2 className="mb-4">Our Sponsors</h2>
-      <p>Currently looking for sponsors</p>
-      {/* <div className="row">
+      {/* <p>Currently looking for sponsors</p> */}
+      <div className="row">
         {sponsors.map(sponsor => (
           <div key={sponsor.id} className="col-sm-12 col-md-6 col-lg-4 mb-4">
             <div className="card">
@@ -29,7 +29,7 @@ export default function Sponsors() {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

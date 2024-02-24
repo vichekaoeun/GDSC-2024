@@ -1,4 +1,5 @@
 import React from 'react';
+// import pic from "./therapy_pic.jpg";
 
 export default function AboutUs() {
   return (
@@ -19,7 +20,7 @@ export default function AboutUs() {
         <div className='col-11 m-4 text-center rounded' style={{ backgroundColor: '#01cda9' }}> {/* Added text-center class */}
           <div className='row p-3'>
             <div className='col-md-6'>
-              <img src="./therapy_pic.jpg" alt="" />
+              {/* <img src={pic} alt="" /> */}
             </div>
             <div className='col-md-6 p-3'>
               <h1 className='text-white text-start fw-bold'>
