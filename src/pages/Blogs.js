@@ -76,11 +76,11 @@ export default function Blog() {
                         <CircularProgress />
                     </div>
                 )}
-                {!loading && !error && blogs.map(blog => (
-                    <div className="card mb-4 m-5">
+                {!loading && !error && blogs.map((blog, index) => (
+                    <div className="card mb-4 m-5" key={index}>
                         {/* Post Details */}
                         <div className="card-header">
-                            <small className="text-muted">Author: John Doe | Posted on: {new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
+                            <small className="text-muted">Author: {blog.username} | Posted on: {new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
                         </div>
                         <div className="card-body">
                             <h2 className="card-title">{blog.title}</h2>
@@ -94,7 +94,6 @@ export default function Blog() {
                             </div>
                             <p className="card-text">{blog.content}</p>
                         </div>
-
                         <div className="p-4">
                             <Link to='/post'>Comments: </Link>
                         </div>

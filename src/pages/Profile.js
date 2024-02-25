@@ -5,6 +5,7 @@ import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PostModal from "../components/PostModal";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

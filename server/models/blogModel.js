@@ -4,8 +4,12 @@ const Schema = mongoose.Schema;
 
 const blogSchema = mongoose.Schema({
     bid: {
-        type: Number,
+        type: String,
         required: true
+    },
+    username: {
+        type: String,
+        default: "user"
     },
     title: {
         type: String,
