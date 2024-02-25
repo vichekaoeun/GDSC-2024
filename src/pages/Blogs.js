@@ -36,7 +36,9 @@ export default function Blog() {
             try {
                 const response = await fetch('http://localhost:3001/blog');
                 if (response.ok) {
-                    const data = await response.json();
+                    let data = await response.json();
+                    // Sort blogs by date
+                    data.sort((a, b) => new Date(b.date) - new Date(a.date));
                     setBlogs(data); // Update the state with fetched blogs
                 } else {
                     throw new Error('Failed to fetch blogs');
