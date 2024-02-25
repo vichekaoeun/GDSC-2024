@@ -11,6 +11,7 @@ import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 import SingleProject from "../components/single-project";
+import Sponsors from "../components/Sponsors";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -44,6 +45,9 @@ export default function Home() {
 
             {/* About Us page */}
             {/*<AboutUs /> */}
+            {/* <AboutUs /> */}
+
+            <Sponsors />
 
 
             {/* <Test /> */}
