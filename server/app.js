@@ -2,16 +2,11 @@ var express = require('express');
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const Product = require('./models/testModel');
 const User = require('./models/userModel');
 const Blog = require('./models/blogModel');
 const cors = require('cors');
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-  res.send("Hello")
-})
 
 // GET from database
 app.get('/profile', async (req, res) => {
@@ -79,20 +74,6 @@ app.put('/profile/:uid', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-// Delete data from database
-app.delete('/products/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const product = await Product.findByIdAndDelete(id);
-    if (!product) {
-      return res.status(404).json({ message: `cannot find product with ID ${id}` })
-    }
-    res.status(200).json(product);
-  } catch (error) {
-    res.status(500).json({ message: error.message })
-  }
-})
 
 // POST for blog
 app.post('/blog', async (req, res) => {
