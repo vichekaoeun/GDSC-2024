@@ -23,22 +23,22 @@ export default function Nav() {
 
 
                 <div className="row">
-                    <Link className="navbar-brand col-md-auto" to="/" style={{fontFamily: "Times New Roman", fontSize: "50px" , fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)"}}>Therapy Talks</Link>
+                    <Link className="navbar-brand col-md-auto" to="/" style={{ fontFamily: "Times New Roman", fontSize: "50px", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" }}>Therapy Talks</Link>
 
                 </div>
 
 
                 <div className="row" style={{ fontFamily: "Arial", fontSize: "20px" }}>
                     <div className="navbar-item my-auto col-md-auto">
-                        <Link className="nav-link active" to = "/mission">Our Mission</Link>
+                        <Link className="nav-link active" to="/blog">Blogs</Link>
+                    </div>
+
+                    <div className="navbar-item my-auto col-md-auto">
+                        <Link className="nav-link active" to="/mission">Our Mission</Link>
                     </div>
 
                     <div className="navbar-item my-auto col-md-auto">
                         <a className="nav-link active" href="#">Programs</a>
-                    </div>
-
-                    <div className="navbar-item my-auto col-md-auto">
-                        <Link className="nav-link active" to="/blog">Blogs</Link>
                     </div>
 
                     <div className="navbar-item my-auto col-md-auto">

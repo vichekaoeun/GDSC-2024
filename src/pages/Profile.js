@@ -125,7 +125,6 @@ export default function Profile() {
                                 <u><h4>About me: </h4></u>
                                 <p>{profileData.description}</p>
                             </div>
-                            {/* Your edit form goes here */}
                         </div>
                     ) : (
                         <p>Loading profile data...</p>
