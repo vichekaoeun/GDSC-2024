@@ -1,17 +1,17 @@
 import React from 'react';
+// import pic from "./therapy_pic.jpg";
 
 export default function AboutUs() {
   return (
     <div className='container-fluid'>
 
-      <div className='row' style={{ backgroundColor: '#80d8c8' }}>
+      <div className='row' style={{ backgroundColor: '#f0ffff' }}>
         <div className='col-md-6'>
-          image
         </div> 
         <div className='text-center col-md-5 p-5 text-md-end'>
           <h1 style={{ fontWeight: 'bold', fontSize: '3rem' }}>About Us</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est illo eveniet velit ratione beatae assumenda nisi. Omnis voluptates doloremque ducimus dicta maiores tempore cupiditate sint, magnam eum, sunt molestiae. Laudantium saepe sapiente eligendi, voluptas sunt inventore dolores autem aliquid dolore quasi repudiandae perferendis neque tenetur eum nihil vitae molestiae quae aut distinctio mollitia, voluptatem enim optio quis consectetur. Veniam eum consequuntur excepturi hic incidunt architecto quo ipsum, harum ratione natus corrupti impedit optio est inventore corporis minima. Consequuntur repellat soluta quas modi esse! Adipisci at magni impedit iure deleniti incidunt ullam temporibus beatae! Odit enim commodi blanditiis nisi explicabo.
+          <p className='fs-5'>
+          We are undergraduate university students with an interest in programming and are huge advocates for mental health who are spread throughout the world in Australia, Canada and the United Kingdom. Our group formed from discussions about the challenges in the tech field and the need for mental well-being that fits within the United Nations' Sustainable Development Goals.
           </p>
         </div> 
       </div>
@@ -20,14 +20,15 @@ export default function AboutUs() {
         <div className='col-11 m-4 text-center rounded' style={{ backgroundColor: '#01cda9' }}> {/* Added text-center class */}
           <div className='row p-3'>
             <div className='col-md-6'>
-              image
+              {/* <img src={pic} alt="" /> */}
             </div>
             <div className='col-md-6 p-3'>
-              <h1 className='text-white text-start'>
-                What We Do!!
+              <h1 className='text-white text-start fw-bold'>
+                What We Do
               </h1>
-              <p className='text-white text-start'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus asperiores quae ratione odit ea, harum porro reiciendis ex eligendi sit, nam inventore quod illo delectus nisi deleniti dicta ducimus voluptate? Quod, recusandae.
+              <p className='text-white text-start fs-5'>
+              This website is our response—a dedicated space where individuals can come together to share their experiences, find support, and access resources aimed at improving mental well-being. Our goal is to build a community that emphasizes the importance of mental health, offering a safe and nurturing environment for everyone to discuss, learn, and grow. Through this platform, we hope to make a positive difference in the lives of those who, like us, believe in the critical importance of maintaining mental health.
+
               </p>
             </div>
           </div>
@@ -35,52 +36,43 @@ export default function AboutUs() {
       </div>
 
       <div className='row bg-black justify-content-center'>
-        <div className='col-11 m-4 text-center rounded'>
+        <div className='col-11 mb-4 text-center rounded'>
           <div className="container">
-            <h2 className="text-center mb-4 text-white">My Team</h2>
-            <div className="row justify-content-center"> {/* Added justify-content-center class */}
+            <h2 className="text-center mb-4 text-white">Our Team</h2>
+            <div className="row justify-content-center"> 
                 <div className="col-md-4 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">John Doe</h5>
-                            <p className="card-text">Email: john@example.com</p>
-                            <p className="card-text">University: Example University</p>
+                            <h5 className="card-title">Vicheka Ouen</h5>
+                            <p className="card-text">Email: </p>
+                            <p className="card-text">University: Toronto Metroplitan University</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Jane Smith</h5>
-                            <p className="card-text">Email: jane@example.com</p>
-                            <p className="card-text">University: Another University</p>
+                            <h5 className="card-title">Kometh Tauch</h5>
+                            <p className="card-text">Email: tauchkometh.uk@gmail.com</p>
+                            <p className="card-text">University: University of Bristol</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Alice Johnson</h5>
+                            <h5 className="card-title">Sihamongkul Ros</h5>
                             <p className="card-text">Email: alice@example.com</p>
-                            <p className="card-text">University: University XYZ</p>
+                            <p className="card-text">University: RMIT University</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Alice Johnson</h5>
+                            <h5 className="card-title">Christopher Bingtang Soo</h5>
                             <p className="card-text">Email: alice@example.com</p>
-                            <p className="card-text">University: University XYZ</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Alice Johnson</h5>
-                            <p className="card-text">Email: alice@example.com</p>
-                            <p className="card-text">University: University XYZ</p>
+                            <p className="card-text">University: University of Bristol</p>
                         </div>
                     </div>
                 </div>
