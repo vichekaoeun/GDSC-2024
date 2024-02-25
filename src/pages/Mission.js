@@ -188,7 +188,10 @@ export default function Mission() {
 
                         </div>
                         <div className="col-6 ">
-                            <h3 style={{ color: "white", paddingTop: "150px" }}> Lorem ipsum dolor sit amet Sed faucibus tortor ligula, non semper sapien rutrum sagittis. Mauris lacus quam, scelerisque id purus quis, hendrerit bibendum eros. Sed nisi dolor, tempor eget tellus a, mattis auctor felis. Duis Curabitur felis lectus, cursus nec ipsum Sed nisi dolor, tempor eget tellus a, mattis auctor felis. Duis ante mauris, semper.</h3>
+                            <h3 style={{ color: "white", paddingTop: "150px" }}>
+                                Our mission is to create a safe space for people with mental disability to share their experiences with others. To help people break out of their shell and be comfortable with opening up.
+                                In the hopes of eventually getting real professional help through our partners.
+                            </h3>
 
                         </div>
 
