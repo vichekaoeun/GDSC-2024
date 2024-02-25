@@ -42,7 +42,7 @@ export default function Signup() {
                 const { email, uid } = cred.user;
 
                 // Make a POST request to your backend server to add user profile data
-                fetch('http://localhost:3001/profile', {
+                fetch('https://therapytalk.netlify.app/profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

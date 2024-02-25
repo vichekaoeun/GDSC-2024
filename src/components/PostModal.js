@@ -39,7 +39,7 @@ export default function PostModal({ closeModal }) {
                 if (!user) return;
 
                 // Fetch profile data based on user's UID
-                const response = await fetch(`http://localhost:3001/profile/${user.uid}`);
+                const response = await fetch(`https://therapytalk.netlify.app/profile/${user.uid}`);
                 if (response.ok) {
                     const data = await response.json();
                     setProfileData(data);
@@ -81,7 +81,7 @@ export default function PostModal({ closeModal }) {
                 username
             };
 
-            const response = await fetch('http://localhost:3001/blog', {
+            const response = await fetch('https://therapytalk.netlify.app/blog', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

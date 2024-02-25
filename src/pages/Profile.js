@@ -45,7 +45,7 @@ export default function Profile() {
                 if (!user) return;
 
                 // Fetch profile data based on user's UID
-                const response = await fetch(`http://localhost:3001/profile/${user.uid}`);
+                const response = await fetch(`https://therapytalk.netlify.app/profile/${user.uid}`);
                 if (response.ok) {
                     const data = await response.json();
                     setProfileData(data);
@@ -65,7 +65,7 @@ export default function Profile() {
         event.preventDefault();
 
         try {
-            const checkResponse = await fetch(`http://localhost:3001/profile/${user.uid}`, {
+            const checkResponse = await fetch(`https://therapytalk.netlify.app/profile/${user.uid}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ export default function Profile() {
             if (checkResponse.ok) {
                 const existingProfile = await checkResponse.json();
                 const method = existingProfile ? 'PUT' : 'POST'; // Determine the HTTP method based on whether the profile exists
-                const url = existingProfile ? `http://localhost:3001/profile/${user.uid}` : 'http://localhost:3001/profile';
+                const url = existingProfile ? `https://therapytalk.netlify.app/profile/${user.uid}` : 'https://therapytalk.netlify.app/profile';
 
                 const response = await fetch(url, {
                     method,
