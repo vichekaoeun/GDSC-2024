@@ -1,32 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export default function Community() {
-    const items = [
-        "Anxiety disorders",
-        "Mood disorders",
-        "Personality disorders",
-        "Psychotic disorders",
-        "Eating disorders",
-        "Substance use disorders",
-        "Neurodevelopmental disorders",
-        "Dissociative disorders",
-        "Sleep disorders",
-        "Other mental health issues"
-    ];
+    const [recentPosts, setRecentPosts] = useState([]);
+    const [tags] = useState([
+        { value: 'addiction', label: 'Addiction' },
+        { value: 'disorder', label: 'Disorder' },
+        { value: 'depression', label: 'Depression' },
+        { value: 'question', label: 'Question' },
+        { value: 'therapy', label: 'Therapy' },
+        { value: 'mood', label: 'Mood' }
+    ]);
 
-    const images = [
-        "default.jpg",
-        "default.jpg",
-        "default.jpg"
-    ];
+    useEffect(() => {
+        // Fetch recent posts from the server when the component mounts
+        fetchRecentPosts();
+    }, []);
 
-    const tags = [
-        "abc",
-        "abc",
-        "abc"
-    ]
+    const fetchRecentPosts = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/blog/recent');
+            if (response.ok) {
+                const data = await response.json();
+                setRecentPosts(data); // Update state with the fetched recent posts
+            } else {
+                throw new Error('Failed to fetch recent posts');
+            }
+        } catch (error) {
+            console.error('Error fetching recent posts:', error);
+        }
+    };
 
     return (
         <div className="container-fluid custom-bg text-white py-5" id="community">
@@ -34,7 +39,6 @@ export default function Community() {
                 <div className="row justify-content-center">
                     <div className="container">
                         <div className="row">
-                            {/* <Searc></Searc>h bar */}
                             <div className="col-md-12 col-lg-7 mx-auto mb-5">
                                 <div className="input-group search-container">
                                     <input type="text" className="form-control" placeholder="Search" />
@@ -48,80 +52,43 @@ export default function Community() {
                         </div>
 
                         <div className="row bg-primary rounded-4">
-                            {/* Tags section */}
                             <div className="col-md-6 col-lg-3 mx-auto mb-3 justify-content-center rounded">
                                 <h2 className="m-4">Popular Groups</h2>
-                                {items.map((item, idx) => (
+                                {tags.map((tag, idx) => (
                                     <div key={idx} className="tag bg-danger text-white px-3 py-2 m-1 font-weight-bold rounded-pill d-inline-block">
-                                        {item}
+                                        {tag.label}
                                     </div>
                                 ))}
                             </div>
 
-                            {/* Groups/Communities section */}
                             <div className="col-md-6 col-lg-9 p-5 mb-3">
-                                <div className="container border bg-white rounded-3">
-                                    
-                                    <div className="row text-black">
-                                        <div className="col col-3 col-md-2 d-flex align-items-center justify-content-center">
-                                            profile pic
-                                        </div>
-
-                                        <div className="col">
-                                            <div className="row mt-2 mb-1 fw-bold fs-3">
-                                                    title
-                                            </div>
-                                            
-                                            <div className="row mb-1">
-                                                April 1st 2024
-                                            </div>
-                                            
-                                            <div className="row mb-1">
-                                                    username tag
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                
-                                    <div className="row mx-sm-2 mx-md-3 mb-2 mt-3">
-                                        {/* tags */}
-                                        {tags.map((tag, idx) => (
-                                            <div key={idx} className="col col-auto tag bg-danger text-white px-2 py-1 m-1 font-weight-bold rounded d-inline-block">
-                                                {tag}
-                                            </div>
-                                        ))}
-                                    </div>
-
-
-
-                                    {/* description */}
-                                    <div className="row">
-                                        <div className="col text-left">
-                                            <p className="text-left overflow-hidden text-truncate text-black">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae facere corporis tenetur harum velit a sequi recusandae. Corporis error facilis cupiditate, fugit nemo impedit, ipsum amet voluptatibus nesciunt incidunt eum nulla nobis.</p>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <h2 className="">Recent Post</h2>
                                 </div>
+                                {recentPosts.map((post, index) => (
+                                    <div className="card mb-4 m-5" key={index}>
+                                        {/* Post Details */}
+                                        <div className="card-header">
+                                            <small className="text-muted">Author: {post.username} | Posted on: {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
+                                        </div>
+                                        <div className="card-body">
+                                            <h2 className="card-title">{post.title}</h2>
+                                            <div className="row mx-sm-2 mx-md-3 mb-2 mt-3">
+                                                {/* Tags */}
+                                                {post.tags.map((tag, idx) => (
+                                                    <div key={idx} className="col col-auto tag bg-danger text-white px-2 py-1 m-1 font-weight-bold rounded d-inline-block">
+                                                        {tag}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <p className="card-text">{post.content}</p>
+                                        </div>
 
-                                <div className="row mt-5">
-                            <div className="container text-center">
-                                <nav aria-label="Page navigation example">
-                                    <ul className="pagination justify-content-center">
-                                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                        <li className="page-item"><a className="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                                    </div>
+                                ))}
+
                             </div>
                         </div>
-
-                            </div>
-                        </div>
-
-                                
                     </div>
                 </div>
             </div>
