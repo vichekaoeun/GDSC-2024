@@ -30,7 +30,7 @@ export default function Nav() {
 
                 <div className="row" style={{ fontFamily: "Arial", fontSize: "20px" }}>
                     <div className="navbar-item my-auto col-md-auto">
-                        <a className="nav-link active" href="#">Our Mission</a>
+                        <Link className="nav-link active" to = "/mission">Our Mission</Link>
                     </div>
 
                     <div className="navbar-item my-auto col-md-auto">
