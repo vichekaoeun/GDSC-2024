@@ -34,7 +34,7 @@ export default function Blog() {
         const fetchBlogs = async () => {
             setLoading(true);
             try {
-                const response = await fetch('https://therapytalk.netlify.app/blog');
+                const response = await fetch('https://therapytalk.onrender.com/blog');
                 if (response.ok) {
                     let data = await response.json();
                     // Sort blogs by date

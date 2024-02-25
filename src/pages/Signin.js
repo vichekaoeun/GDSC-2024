@@ -36,7 +36,7 @@ export default function Signin() {
                 const { email, uid } = user;
 
                 // Make a POST request to your backend server to add user profile data
-                fetch('https://therapytalk.netlify.app/profile', {
+                fetch('https://therapytalk.onrender.com/profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
