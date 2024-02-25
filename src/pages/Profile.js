@@ -114,18 +114,19 @@ export default function Profile() {
                             <div className="row justify-content-center gap-2">
                                 <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
                                     <u><h4>Email: </h4></u>
-                                    <p>{user.email}</p>
+                                    <p style={{ overflowWrap: "break-word" }}>{user.email}</p> {/* Apply overflowWrap CSS property */}
                                 </div>
                                 <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
                                     <u><h4>Username: </h4></u>
-                                    <p>{profileData.username}</p>
+                                    <p style={{ overflowWrap: "break-word" }}>{profileData.username}</p> {/* Apply overflowWrap CSS property */}
                                 </div>
                             </div>
-                            <div className="bg-white p-1 rounded" style={{ width: "12rem" }}>
+                            <div className="bg-white p-1 rounded" style={{ width: "12rem", maxHeight: "200px", overflowY: "auto" }}>
                                 <u><h4>About me: </h4></u>
-                                <p>{profileData.description}</p>
+                                <p style={{ overflowWrap: "break-word" }}>{profileData.description}</p> {/* Apply overflowWrap CSS property */}
                             </div>
                         </div>
+
                     ) : (
                         <p>Loading profile data...</p>
                     )}

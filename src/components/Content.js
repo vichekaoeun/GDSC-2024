@@ -1,6 +1,7 @@
 import React from "react";
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import { Link } from 'react-router-dom';
 
 export default function Content() {
     return (
@@ -14,7 +15,7 @@ export default function Content() {
                             </div>
                         </h1>
 
-                        <a href="#community" className="btn btn-danger btn-lg text-white">Learn More</a>
+                        <Link to="/mission" className="btn btn-danger btn-lg text-white">Learn More</Link>
                     </div>
                 </div>
             </div>

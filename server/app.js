@@ -34,6 +34,22 @@ app.get('/profile/:uid', async (req, res) => {
   }
 })
 
+// GET route to fetch the most recent posts
+app.get('/blog/recent', async (req, res) => {
+  try {
+    // Fetch the most recent posts from your database
+    const recentPosts = await Blog.find()
+      .sort({ date: -1 }) // Sort by the 'date' field in descending order
+      .limit(1); // Limit the number of posts returned
+
+    // Return the most recent posts in the response
+    res.json(recentPosts);
+  } catch (error) {
+    console.error('Error fetching recent posts:', error);
+    res.status(500).json({ error: 'Failed to fetch recent posts' });
+  }
+});
+
 // POST to database
 app.post('/profile', async (req, res) => {
   try {

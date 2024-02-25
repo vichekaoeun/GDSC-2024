@@ -32,21 +32,35 @@ export default function Signin() {
             .then((result) => {
                 const user = result.user;
 
-                // You can access user properties here
-                console.log('User ID:', user.uid);
-                console.log('Email:', user.email);
-                console.log('Display Name:', user.displayName);
-                console.log('Photo URL:', user.photoURL);
-                console.log('Linked Google Account:', user.providerData);
-                navigate('/profile');
+                // Extract user information from the user object
+                const { email, uid } = user;
+
+                // Make a POST request to your backend server to add user profile data
+                fetch('http://localhost:3001/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, uid })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('User profile created successfully');
+                            navigate('/profile');
+                        } else {
+                            throw new Error('Failed to create user profile');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error creating user profile:', error);
+                    });
             })
             .catch((error) => {
-                // Handle the canceled popup request error
-                if (error.code === 'auth/cancelled-popup-request') {
-                    console.log('Popup sign-in was canceled.');
-                } else {
-                    console.error('Error signing in with Google:', error);
-                }
+                console.error('Error signing up:', error);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // Update the error state to display to the user
+                setError(errorMessage);
             });
     }
 
