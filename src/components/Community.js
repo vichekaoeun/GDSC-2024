@@ -21,7 +21,7 @@ export default function Community() {
 
     const fetchRecentPosts = async () => {
         try {
-            const response = await fetch('http://localhost:3001/blog/recent');
+            const response = await fetch('https://therapytalk.onrender.com/blog/recent');
             if (response.ok) {
                 const data = await response.json();
                 setRecentPosts(data); // Update state with the fetched recent posts
