@@ -1,5 +1,7 @@
 # GDSC-2024
 ## Description
+TherapyTalk is a social good platform for people struggling with mental disabilities, offering a place to form communities alike and share stories in the hope to eventually become
+cured.
 ## Getting Started
 ## Technologies
 * **Frontend:** REACT, Bootstrap, SASS, Webpack, Babel
@@ -52,7 +54,7 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-* Vicheka Oeun
+* Vicheka Oeun 
 * Kometh Tauch
 * Christopher Soo
 * Sihamongkul Ros
