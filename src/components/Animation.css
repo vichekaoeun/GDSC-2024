@@ -1,0 +1,47 @@
+.underline-animation {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    animation: underline 2s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes underline {
+    from {
+        transform: scaleX(0);
+        transform-origin: bottom left;
+    }
+
+    to {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}
+
+h1.roboto-regular.text-black.underline-animation {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

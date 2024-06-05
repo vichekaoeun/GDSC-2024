@@ -37,11 +37,11 @@ export default function Home() {
     })
 
     return (
-        <div>
+        <div className="vh-100 bg-color">
             <Nav />
             <Content />
             {/* Main Page */}
-            <Community />
+            {/*<Community />*/}
 
             {/* About Us page */}
             {/*<AboutUs /> */}
@@ -51,7 +51,7 @@ export default function Home() {
 
 
             {/* <Test /> */}
-            <Footer />
+            {/*<Footer />*/}
         </div>
     )
 }

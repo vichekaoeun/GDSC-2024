@@ -1,22 +1,15 @@
 import React from "react";
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import './Animation.css';
 import { Link } from 'react-router-dom';
 
 export default function Content() {
     return (
-        <div className="container-fluid bg-green" style={{ marginBottom: "125px", marginTop: "25px" }}>
-            <div className="justify-content-center align-items-center">
-                <div className="row">
-                    <div className="col-md-5 offset-sm-1">
-                        <h1>
-                            <div className="display-4 mt-5 text-sm">
-                                <p className="fw-bold text-black">Find Communities Who Relate to You</p>
-                            </div>
-                        </h1>
-
-                        <Link to="/mission" className="btn btn-danger btn-lg text-white">Learn More</Link>
-                    </div>
+        <div className="container vh-100 d-flex justify-content-center align-items-center">
+            <div className="row">
+                <div className="col">
+                    <h1 className="roboto-regular text-black underline-animation">Find a Community like you</h1>
                 </div>
             </div>
         </div>
