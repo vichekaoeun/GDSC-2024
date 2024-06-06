@@ -37,7 +37,7 @@ export default function Home() {
     })
 
     return (
-        <div className="vh-100 bg-color">
+        <div>
             <Nav />
             <Content />
             {/* Main Page */}

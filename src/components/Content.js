@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 
 export default function Content() {
     return (
-        <div className="container d-flex flex-column align-items-center">
-            <video src={videoBg} autoPlay loop muted className="video-bg flex-grow-1" />
+        <div className="d-flex flex-column align-items-center">
+            <video src={videoBg} autoPlay loop muted className="video-container" />
             <div className="overlay">
                 <h1 className="roboto-regular text-white underline-animation fade-in-container">Find a Community like you</h1>
             </div>
