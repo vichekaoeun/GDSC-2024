@@ -79,7 +79,17 @@ module.exports = {
                         },
                     },
                 ],
-            }
+            },
+            {
+                test: /\.(mp4|webm|ogg|swf|ogv)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[hash].[ext]',
+                        outputPath: 'videos/',
+                    }
+                }
+            },
         ]
     },
     devServer: {
