@@ -40,14 +40,14 @@ export default function Infographic() {
 
     return (
         <>
-            <div className='row mb-5 mt-3'>
+            <div className='row mx-0 mb-5 mt-3'>
                 <div className='col d-flex justify-content-center align-items-center'>
                     <div className='text-center custom-font'>
                         <h1 className='display-1 custom-red-font'>1 in 4</h1>
                         <h1 className=''>"People will suffer from mental<br /> disorder, according to the<br /> <u className='custom-blue-font'>World Health Organization (WHO)</u>"</h1>
                     </div>
                 </div>
-                <div className='col row justify-content-center'>
+                <div className='col row justify-content-center mx-0'>
                     <PieChart width={500} height={500}>
                         <Pie
                             data={data}
@@ -66,7 +66,7 @@ export default function Infographic() {
                     </PieChart>
                 </div>
             </div>
-            <div className='row'>
+            <div className='row mx-0'>
                 <div className='col row justify-content-center'>
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart
