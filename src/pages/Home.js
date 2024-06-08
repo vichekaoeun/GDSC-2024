@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import Nav from '../components/Nav';
@@ -39,9 +39,13 @@ export default function Home() {
     return (
         <div className="custom-bg">
             <Nav />
-            <Content />
+            <div id='section1'>
+                <Content />
+            </div>
             {/* Main Page */}
-            <Infographic />
+            <div id='section2'>
+                <Infographic />
+            </div>
 
             {/* About Us page */}
             {/*<AboutUs /> */}
