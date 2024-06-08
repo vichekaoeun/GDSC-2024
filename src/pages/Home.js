@@ -3,8 +3,9 @@ import '../scss/style.scss';
 import '../scss/_variables.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer'
-import Content from '../components/Content'
-import Infographic from "../components/Infographic";
+import Content from '../components/Content';
+import Graph1 from "../components/graph1";
+import Graph2 from "../components/graph2";
 import Test from '../components/test';
 import AboutUs from '../components/About-Us';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
@@ -63,7 +64,10 @@ export default function Home() {
             </div>
             {/* Main Page */}
             <div id='section2' className="section">
-                <Infographic />
+                <Graph1 />
+            </div>
+            <div id='section3' className="section">
+                <Graph2 />
             </div>
 
             {/* About Us page */}
