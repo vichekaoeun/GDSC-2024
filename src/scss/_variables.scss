@@ -6,7 +6,10 @@ $primary: #01CDA9;
 $secondary: #353535;
 $outline: #CCCCCC;
 
-$custom-color: #82744e; // Define your custom color here
+$custom-color: #F0FFFF; // Define your custom color here
+$custom-font: 'Istok Web', sans-serif;
+$custom-red-font: #E54461;
+$custom-blue-font: #3A88D0;
 
 .custom-btn {
   background-color: $custom-color;
@@ -21,6 +24,17 @@ $custom-color: #82744e; // Define your custom color here
   background-color: $custom-color;
 }
 
+.custom-font {
+  font-family: $custom-font;
+}
+
+.custom-red-font {
+  color: $custom-red-font;
+}
+
+.custom-blue-font {
+  color: $custom-blue-font;
+}
 
 // Required
 @import "../../node_modules/bootstrap/scss/variables";

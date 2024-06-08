@@ -4,7 +4,7 @@ import '../scss/_variables.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer'
 import Content from '../components/Content'
-import Community from '../components/Community';
+import Infographic from "../components/Infographic";
 import Test from '../components/test';
 import AboutUs from '../components/About-Us';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
@@ -37,11 +37,11 @@ export default function Home() {
     })
 
     return (
-        <div>
+        <div className="custom-bg">
             <Nav />
             <Content />
             {/* Main Page */}
-            {/*<Community />*/}
+            <Infographic />
 
             {/* About Us page */}
             {/*<AboutUs /> */}
