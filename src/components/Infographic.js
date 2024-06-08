@@ -2,12 +2,25 @@ import React, { PureComponent } from 'react';
 import Chart from 'chart.js/auto';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 export default function Infographic() {
     const data = [
         { name: 'Group Affected', value: 25 },
         { name: 'Group Not Affected', value: 75 },
+    ];
+
+    const data2 = [
+        { cause: 'Heart Disease', deaths: 65900 },
+        { cause: 'Cancer', deaths: 599000 },
+        { cause: 'Unintentional Injuries', deaths: 173000 },
+        { cause: 'Chronic Lower Respiratory Disease', deaths: 156000 },
+        { cause: 'Stroke', deaths: 147000 },
+        { cause: 'Alzheimer\'s Disease', deaths: 121000 },
+        { cause: 'Diabetes', deaths: 88000 },
+        { cause: 'Nephritis', deaths: 51000 },
+        { cause: 'Influenza and Pneumonia', deaths: 50000 },
+        { cause: 'Suicide', deaths: 47000 },
     ];
 
     const COLORS = ['#01CDA9', '#B9F1E7'];
@@ -54,8 +67,28 @@ export default function Infographic() {
                 </div>
             </div>
             <div className='row'>
-                <div className='col'>
-                    Bar Chart
+                <div className='col row justify-content-center'>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                            width={500}
+                            height={300}
+                            data={data2}
+                            margin={{
+                                top: 5,
+                                right: 30,
+                                left: 20,
+                                bottom: 5,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="cause" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+                            <Bar dataKey="deaths" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} animationBegin={0} animationDuration={2000} />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
                 <div className='col d-flex justify-content-center align-items-center'>
                     <div className='text-center custom-font'>
