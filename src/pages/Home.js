@@ -9,7 +9,8 @@ import Test from '../components/test';
 import AboutUs from '../components/About-Us';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import SingleProject from "../components/single-project";
 import Sponsors from "../components/Sponsors";
 
@@ -36,14 +37,32 @@ export default function Home() {
         }
     })
 
+    const scrollToNextSection = () => {
+        const sections = document.querySelectorAll('.section');
+        const currentSection = Array.from(sections).find(section => {
+            const rect = section.getBoundingClientRect();
+            return rect.top >= 0 && rect.top <= window.innerHeight;
+        });
+
+        if (currentSection) {
+            const nextSection = currentSection.nextElementSibling;
+            if (nextSection && nextSection.classList.contains('section')) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <div className="custom-bg">
             <Nav />
-            <div id='section1'>
+            <button onClick={scrollToNextSection} style={{ position: 'fixed', bottom: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: '500', borderRadius: '15px', borderWidth: '1px' }}>
+                <FontAwesomeIcon icon={faArrowDown} />
+            </button>
+            <div id='section1' className="section">
                 <Content />
             </div>
             {/* Main Page */}
-            <div id='section2'>
+            <div id='section2' className="section">
                 <Infographic />
             </div>
 
