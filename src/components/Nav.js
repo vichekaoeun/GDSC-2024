@@ -18,7 +18,7 @@ export default function Nav() {
     }, [auth]);
 
     return (
-        <nav className="navbar navbar-expand-xxl bg-primary sticky-top">
+        <nav className="navbar navbar-expand-xxl sticky-top" style={{ background: '#01CDA9' }}>
             <div className="container-fluid">
 
 

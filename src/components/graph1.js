@@ -1,11 +1,18 @@
-import React, { PureComponent } from 'react';
-import Chart from 'chart.js/auto';
+import React, { PureComponent, useState } from 'react';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import './Animation.css';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
+import VisibilitySensor from 'react-visibility-sensor';
 
 export default function Graph1() {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const onVisibilityChange = (isVisible) => {
+        if (isVisible) {
+            setIsVisible(true);
+        }
+    };
 
     const data = [
         { name: 'Group Affected', value: 25 },
@@ -28,7 +35,7 @@ export default function Graph1() {
     };
 
     return (
-        <div className='row mx-0 mb-5 mt-3 align-items-center' style={{ height: '40rem' }}>
+        <div className='row mx-0 align-items-center' style={{ height: '40rem' }}>
             <div className='col d-flex justify-content-center align-items-center mx-0'>
                 <div className='text-center custom-font rounded bg-white p-3 shadow'>
                     <h1 className='display-1 custom-red-font'>1 in 4</h1>
@@ -36,22 +43,24 @@ export default function Graph1() {
                 </div>
             </div>
             <div className='col row justify-content-center mx-0'>
-                <PieChart width={500} height={500}>
-                    <Pie
-                        data={data}
-                        cx={250}
-                        cy={250}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={200}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                    </Pie>
-                </PieChart>
+                <VisibilitySensor onChange={onVisibilityChange}>
+                    <PieChart width={500} height={500}>
+                        <Pie
+                            data={isVisible ? data : []}
+                            cx={250}
+                            cy={250}
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={200}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                    </PieChart>
+                </VisibilitySensor>
             </div>
         </div>
     )

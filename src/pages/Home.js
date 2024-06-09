@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
-import '../scss/style.scss';
-import '../scss/_variables.scss';
+import React, { useEffect, useState } from "react";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { Box, Grow } from '@mui/material';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 import Content from '../components/Content';
 import Graph1 from "../components/graph1";
 import Graph2 from "../components/graph2";
-import Test from '../components/test';
-import AboutUs from '../components/About-Us';
-import { initializeApp } from 'firebase/app'; // Import initializeApp
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import SingleProject from "../components/single-project";
-import Sponsors from "../components/Sponsors";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -25,18 +20,7 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig); // Initialize Firebase app
-const auth = getAuth(app);
-
 export default function Home() {
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            console.log('user logged in');
-        }
-        else {
-            console.log('user logged out');
-        }
-    })
 
     const scrollToNextSection = () => {
         const sections = document.querySelectorAll('.section');
@@ -48,7 +32,10 @@ export default function Home() {
         if (currentSection) {
             const nextSection = currentSection.nextElementSibling;
             if (nextSection && nextSection.classList.contains('section')) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
+                window.scrollTo({
+                    top: nextSection.offsetTop,
+                    behavior: 'smooth'
+                });
             }
         }
     };
@@ -62,23 +49,14 @@ export default function Home() {
             <div id='section1' className="section">
                 <Content />
             </div>
-            {/* Main Page */}
             <div id='section2' className="section">
                 <Graph1 />
             </div>
             <div id='section3' className="section">
                 <Graph2 />
             </div>
-
-            {/* About Us page */}
-            {/*<AboutUs /> */}
-            {/* <AboutUs /> */}
-
-            {/*} <Sponsors /> */}
-
-
-            {/* <Test /> */}
-            {/*<Footer />*/}
+            {/* Uncomment below to include Footer */}
+            {/* <Footer /> */}
         </div>
     )
 }
