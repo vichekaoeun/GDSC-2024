@@ -3,6 +3,7 @@ import '../scss/style.scss';
 import '../scss/_variables.scss';
 import { ResponsiveContainer, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import VisibilitySensor from 'react-visibility-sensor';
+import Grow from '@mui/material/Grow';
 
 export default function Graph2() {
     const [isVisible, setIsVisible] = useState(false);
@@ -55,14 +56,18 @@ export default function Graph2() {
                     </ResponsiveContainer>
                 </VisibilitySensor>
             </div>
-            <div className='col d-flex justify-content-center align-items-center'>
-                <div className='text-center custom-font rounded bg-white p-3 shadow'>
-                    <h2><span style={{ fontSize: '1.5em' }} className='custom-red-font'>10th</span> leading cause of death in<br /> the U.S.</h2>
-                    <h3>
-                        "<u className='custom-blue-font'>The Centers for Disease Control and<br /> Prevention (CDC)</u> reports suicide<br /> being a major risk factor."
-                    </h3>
-                </div>
-            </div>
+            <VisibilitySensor onChange={onVisibilityChange}>
+                <Grow in={isVisible} timeout={1000}>
+                    <div className='col d-flex justify-content-center align-items-center'>
+                        <div className='text-center custom-font rounded bg-white p-3 shadow'>
+                            <h2><span style={{ fontSize: '1.5em' }} className='custom-red-font'>10th</span> leading cause of death in<br /> the U.S.</h2>
+                            <h3>
+                                "<u className='custom-blue-font'>The Centers for Disease Control and<br /> Prevention (CDC)</u> reports suicide<br /> being a major risk factor."
+                            </h3>
+                        </div>
+                    </div>
+                </Grow>
+            </VisibilitySensor>
         </div >
     )
 }

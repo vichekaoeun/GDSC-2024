@@ -3,9 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { Box, Grow } from '@mui/material';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import Content from '../components/Content';
 import Graph1 from "../components/graph1";
 import Graph2 from "../components/graph2";
@@ -55,8 +53,6 @@ export default function Home() {
             <div id='section3' className="section">
                 <Graph2 />
             </div>
-            {/* Uncomment below to include Footer */}
-            {/* <Footer /> */}
         </div>
     )
 }

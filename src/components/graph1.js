@@ -4,6 +4,7 @@ import '../scss/_variables.scss';
 import './Animation.css';
 import { PieChart, Pie, Cell } from 'recharts';
 import VisibilitySensor from 'react-visibility-sensor';
+import Grow from '@mui/material/Grow';
 
 export default function Graph1() {
     const [isVisible, setIsVisible] = useState(false);
@@ -36,12 +37,16 @@ export default function Graph1() {
 
     return (
         <div className='row mx-0 align-items-center' style={{ height: '40rem' }}>
-            <div className='col d-flex justify-content-center align-items-center mx-0'>
-                <div className='text-center custom-font rounded bg-white p-3 shadow'>
-                    <h1 className='display-1 custom-red-font'>1 in 4</h1>
-                    <h2 className=''>"People will suffer from mental<br /> disorder, according to the<br /> <u className='custom-blue-font'>World Health Organization (WHO)</u>"</h2>
-                </div>
-            </div>
+            <VisibilitySensor onChange={onVisibilityChange}>
+                <Grow in={isVisible} timeout={1000}>
+                    <div className='col d-flex justify-content-center align-items-center mx-0'>
+                        <div className='text-center custom-font rounded bg-white p-3 shadow'>
+                            <h1 className='display-1 custom-red-font'>1 in 4</h1>
+                            <h2 className=''>"People will suffer from mental<br /> disorder, according to the<br /> <u className='custom-blue-font'>World Health Organization (WHO)</u>"</h2>
+                        </div>
+                    </div>
+                </Grow>
+            </VisibilitySensor>
             <div className='col row justify-content-center mx-0'>
                 <VisibilitySensor onChange={onVisibilityChange}>
                     <PieChart width={500} height={500}>
