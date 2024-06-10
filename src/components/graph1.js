@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 import './Animation.css';
@@ -8,6 +8,7 @@ import Grow from '@mui/material/Grow';
 
 export default function Graph1() {
     const [isVisible, setIsVisible] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(-1);
 
     const onVisibilityChange = (isVisible) => {
         if (isVisible) {
@@ -42,7 +43,7 @@ export default function Graph1() {
                     <div className='col d-flex justify-content-center align-items-center mx-0'>
                         <div className='text-center custom-font rounded bg-white p-3 shadow'>
                             <h1 className='display-1 custom-red-font'>1 in 4</h1>
-                            <h2 className=''>"People will suffer from mental<br /> disorder, according to the<br /> <u className='custom-blue-font'>World Health Organization (WHO)</u>"</h2>
+                            <h3 className=''>"People will suffer from mental<br /> disorder, according to the<br /> <u className='custom-blue-font'>World Health Organization (WHO)</u>"</h3>
                         </div>
                     </div>
                 </Grow>

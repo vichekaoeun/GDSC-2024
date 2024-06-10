@@ -10,6 +10,7 @@ $custom-color: #F0FFFF; // Define your custom color here
 $custom-font: 'Istok Web', sans-serif;
 $custom-red-font: #E54461;
 $custom-blue-font: #3A88D0;
+$custom-purple-bg: #332D4F;
 $custom-height: 400px;
 
 .custom-btn {
@@ -39,6 +40,10 @@ $custom-height: 400px;
 
 .custom-height {
   height: $custom-height;
+}
+
+.custom-purple-bg {
+  background-color: $custom-purple-bg;
 }
 
 // Required

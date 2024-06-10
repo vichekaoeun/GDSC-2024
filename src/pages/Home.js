@@ -7,6 +7,9 @@ import Nav from '../components/Nav';
 import Content from '../components/Content';
 import Graph1 from "../components/graph1";
 import Graph2 from "../components/graph2";
+import Solution from '../components/Solution';
+import '../scss/style.scss';
+import '../scss/_variables.scss';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -52,6 +55,9 @@ export default function Home() {
             </div>
             <div id='section3' className="section">
                 <Graph2 />
+            </div>
+            <div id="section4" className="section custom-purple-bg">
+                <Solution />
             </div>
         </div>
     )
