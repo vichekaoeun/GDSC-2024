@@ -23,30 +23,9 @@ const firebaseConfig = {
 
 export default function Home() {
 
-    const scrollToNextSection = () => {
-        const sections = document.querySelectorAll('.section');
-        const currentSection = Array.from(sections).find(section => {
-            const rect = section.getBoundingClientRect();
-            return rect.top >= 0 && rect.top <= window.innerHeight;
-        });
-
-        if (currentSection) {
-            const nextSection = currentSection.nextElementSibling;
-            if (nextSection && nextSection.classList.contains('section')) {
-                window.scrollTo({
-                    top: nextSection.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    };
-
     return (
         <div className="custom-bg">
             <Nav />
-            <button onClick={scrollToNextSection} style={{ position: 'fixed', bottom: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: '500', borderRadius: '15px', borderWidth: '1px' }}>
-                <FontAwesomeIcon icon={faArrowDown} />
-            </button>
             <div id='section1' className="section">
                 <Content />
             </div>
