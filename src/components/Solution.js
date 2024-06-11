@@ -48,36 +48,36 @@ export default function Solution() {
                 </h1>
                 <div className="row mx-0">
                     <div className="col">
-                        <img src={frame1} alt="frame1" className="w-35" />
+                        <img src={frame1} alt="frame1" className="w-45" />
                     </div>
                     <div className="col row align-items-center">
-                        <span className="text-light">
+                        <span className="text-light custom-font-size col-6">
                             Help people in-need share<br /> their stories and find a community.
                         </span>
                     </div>
                 </div>
                 <div className="row mx-0">
-                    <div className="col row align-items-center">
-                        <span className="text-light">
+                    <div className="col d-flex align-items-center">
+                        <span className="text-light custom-font-size ms-auto">
                             Through opening up from our various programs<br /> people become more comfortable talking.
                         </span>
                     </div>
                     <div className="col">
-                        <img src={frame2} alt="frame1" className="w-35" />
+                        <img src={frame2} alt="frame1" className="w-45" />
                     </div>
                 </div>
                 <div className="row mx-0">
                     <div className="col">
-                        <img src={frame3} alt="frame1" className="w-35" />
+                        <img src={frame3} alt="frame1" className="w-45" />
                     </div>
                     <div className="col row align-items-center">
-                        <span className="text-light">
-                            We forge partnerships with professional therapists & organizations<br /> to help relief payments in order to connect people with care.
+                        <span className="text-light custom-font-size col-6">
+                            We forge partnerships with professional therapists & organizations to help relief payments in order to connect people with care.
                         </span>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
