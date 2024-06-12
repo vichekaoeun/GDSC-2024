@@ -9,6 +9,7 @@ import Graph1 from "../components/graph1";
 import Graph2 from "../components/graph2";
 import Solution from '../components/Solution';
 import Promo from '../components/Promo';
+import Footer from '../components/Footer';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 
@@ -41,6 +42,9 @@ export default function Home() {
             </div>
             <div id="section5" className="section">
                 <Promo />
+            </div>
+            <div id="section6" className="section min-vw-100">
+                <Footer />
             </div>
         </div>
     )
