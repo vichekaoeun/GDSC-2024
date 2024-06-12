@@ -4,7 +4,7 @@ TherapyTalk is a social good platform for people struggling with mental disabili
 cured.
 ## Getting Started
 ## Technologies
-* **Frontend:** REACT, Bootstrap, SASS, MaterialUI, FramerMotion, Lottie, Webpack, Babel
+* **Frontend:** REACT, Bootstrap, SASS, Recharts, MaterialUI, FramerMotion, Lottie, Webpack, Babel
 * **Backend:** Express.JS, Firebase, MongoDB
 ### Dependencies
 Before beginning you need to have
