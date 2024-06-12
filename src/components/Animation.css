@@ -57,3 +57,28 @@
     width: 100%;
     height: auto;
 }
+
+.shadow-text {
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-container {
+    position: relative;
+    display: inline-block;
+}
+
+.lottie-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 200%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.text-container h1 {
+    z-index: 1;
+    position: relative;
+}

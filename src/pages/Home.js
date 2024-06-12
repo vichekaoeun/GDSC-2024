@@ -8,6 +8,7 @@ import Content from '../components/Content';
 import Graph1 from "../components/graph1";
 import Graph2 from "../components/graph2";
 import Solution from '../components/Solution';
+import Promo from '../components/Promo';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
 
@@ -37,6 +38,9 @@ export default function Home() {
             </div>
             <div id="section4" className="section custom-purple-bg">
                 <Solution />
+            </div>
+            <div id="section5" className="section">
+                <Promo />
             </div>
         </div>
     )
