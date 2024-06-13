@@ -17,8 +17,8 @@ export default function Promo() {
                 </div>
                 <Link className="btn btn-danger btn-lg mt-3" to="/signup">Join us Today</Link>
             </div>
-            <div className="col-6 p-0">
-                <img src={decor} alt="decor" className="img-fluid" />
+            <div className="col-6 d-flex justify-content-end p-0">
+                <img src={decor} alt="decor" />
             </div>
         </div>
     )
