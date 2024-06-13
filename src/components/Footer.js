@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <div className="row bg-black text-light roboto-light p-5">
+        <div className="row bg-black text-light roboto-light p-5 mx-0">
             <div className="col text-center row gap-3">
                 <div className="ms-4">
                     <h2 className="roboto-regular">Contact Us</h2>

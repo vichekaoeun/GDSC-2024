@@ -43,7 +43,7 @@ export default function Home() {
             <div id="section5" className="section">
                 <Promo />
             </div>
-            <div id="section6" className="section min-vw-100">
+            <div id="section6" className="section">
                 <Footer />
             </div>
         </div>
