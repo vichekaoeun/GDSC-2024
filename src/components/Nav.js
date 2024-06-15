@@ -4,10 +4,13 @@ import '../scss/_variables.scss';
 import '../scss/style.scss';
 import { Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import './nav.css';
 
 export default function Nav() {
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [showNav, setShowNav] = useState(true);
+    const lastScrollTop = useRef(0);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -17,8 +20,28 @@ export default function Nav() {
         return () => unsubscribe();
     }, [auth]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop.current) {
+                setShowNav(false); // Scrolling down
+            } else {
+                setShowNav(true); // Scrolling up
+            }
+
+            lastScrollTop.current = currentScroll <= 0 ? 0 : currentScroll;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className="navbar navbar-expand-xxl sticky-top" style={{ background: '#01CDA9' }}>
+        <nav className={`navbar navbar-expand-xxl sticky-top ${showNav ? 'show' : 'hide'}`} style={{ background: '#01CDA9', transition: 'top 0.3s' }}>
             <div className="container-fluid">
 
 

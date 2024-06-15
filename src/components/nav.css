@@ -1,0 +1,11 @@
+.navbar {
+    transition: top 0.3s ease-in-out;
+}
+
+.navbar.hide {
+    top: -100px;
+}
+
+.navbar.show {
+    top: 0;
+}
