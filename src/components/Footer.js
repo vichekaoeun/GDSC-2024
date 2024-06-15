@@ -40,6 +40,7 @@ export default function Footer() {
                 <h2 className="roboto-regular">Other Links</h2>
                 <ul>
                     <li className="list-group-item fs-2"><Link to='/about' className="fs-3">About Us</Link></li>
+                    <li className="list-group-item fs-2"><Link to='/mission' className="fs-3">Mission</Link></li>
                     <li className="list-group-item fs-2"><Link to='/sponsors' className="fs-3">Sponsors</Link></li>
                     <li className="list-group-item fs-2"><Link to='/partners' className="fs-3">Partners</Link></li>
                     <li className="list-group-item fs-2"><Link to='/policy' className="fs-3">Terms of Service</Link></li>

@@ -70,15 +70,7 @@ export default function Nav() {
                         </div>
 
                         <div className="navbar-item my-auto col-md-auto hideOnMobile">
-                            <Link className="nav-link active" to="/mission">Our Mission</Link>
-                        </div>
-
-                        <div className="navbar-item my-auto col-md-auto hideOnMobile">
-                            <a className="nav-link active" href="#">Programs</a>
-                        </div>
-
-                        <div className="navbar-item my-auto col-md-auto hideOnMobile">
-                            <a className="nav-link active" href="#">Communities</a>
+                            <a className="nav-link active" href="#">Groups</a>
                         </div>
 
                         <div className="navbar-item my-auto col-md-auto hideOnMobile">
@@ -99,11 +91,11 @@ export default function Nav() {
 
                 <Link className="nav-link active" to="/blog">Stories</Link>
 
-                <Link className="nav-link active" to="/mission">Our Mission</Link>
+                <a className="nav-link active" href="#">Groups</a>
 
                 <a className="nav-link active" href="#">Programs</a>
 
-                <a className="nav-link active" href="#">Communities</a>
+                <Link className="nav-link active" to="/mission">Our Mission</Link>
 
                 {isLoggedIn ? (
                     <button className="btn btn-danger btn-lg login-button"><Link style={{ textDecoration: "none", color: "white" }} to="/profile" >Profile</Link></button>
