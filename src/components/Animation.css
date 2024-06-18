@@ -99,7 +99,39 @@
     max-width: 100%;
     /* Ensures the image doesn't overflow the container */
     height: auto;
-    /* Maintains aspect ratio */
+    /* Maintains the aspect ratio */
     width: 50%;
     /* Makes the image fit the container width */
+}
+
+.image-container-custom {
+    max-width: 80%;
+    /* Adjust as needed */
+}
+
+.adjust-position {
+    justify-content: center;
+}
+
+.adjust-position2 {
+    justify-content: start;
+}
+
+
+.custom-width {
+    max-width: 400px;
+    /* Adjust this value as needed */
+    width: 100%;
+    /* Ensures the span doesn't overflow its container */
+}
+
+@media (max-width: 800px) {
+    .mobile-vertical-stack2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .adjust-position {
+        justify-content: center;
+    }
 }

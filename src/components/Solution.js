@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import './Animation.css';
 import Lottie from 'lottie-react';
 import image from '../assets/girlsad.json';
 import arrow from '../assets/arrowdown.png';
@@ -42,36 +43,36 @@ export default function Solution() {
             >
                 <Lottie animationData={paywall} loop={true} style={{ width: '400px' }} className="m-5" />
             </motion.div>
-            <div className="row p-5 mt-5 mobile-vertical-stack">
+            <div className="row p-5 mt-5">
                 <h1 className="text-light custom-font display-2">
                     Our Solution
                 </h1>
-                <div className="row mx-0">
-                    <div className="col d-flex align-items-center justify-content-end">
-                        <img src={frame1} alt="frame1" className="image-container" />
+                <div className="row mx-0 mobile-vertical-stack2">
+                    <div className="col d-flex align-items-center adjust-position">
+                        <img src={frame1} alt="frame1" className="img-fluid image-container image-container-custom" />
                     </div>
-                    <div className="col row align-items-center">
-                        <span className="text-light custom-font-size col-6">
+                    <div className="col row justify-content-center">
+                        <span className="text-light custom-font-size col-6 row align-items-center custom-width">
                             Help people in-need share their stories and find a community.
                         </span>
                     </div>
                 </div>
-                <div className="row mx-0">
-                    <div className="col d-flex align-items-center justify-content-end">
-                        <span className="text-light custom-font-size">
-                            Through opening up from our various programs<br /> people become more comfortable talking.
+                <div className="row mx-0 mobile-vertical-stack2">
+                    <div className="col row justify-content-center">
+                        <span className="text-light custom-font-size col d-flex align-items-center custom-width">
+                            Through opening up from our various programs people become more comfortable talking.
                         </span>
                     </div>
-                    <div className="col row align-items-center">
-                        <img src={frame2} alt="frame1" className=" image-container" />
+                    <div className="col row align-items-center adjust-position">
+                        <img src={frame2} alt="frame1" className=" img-fluid image-container image-container-custom" />
                     </div>
                 </div>
-                <div className="row mx-0">
-                    <div className="col d-flex align-items-center justify-content-end">
-                        <img src={frame3} alt="frame1" className="image-container" />
+                <div className="row mx-0 mobile-vertical-stack2">
+                    <div className="col d-flex align-items-center adjust-position">
+                        <img src={frame3} alt="frame1" className="img-fluid image-container image-container-custom" />
                     </div>
-                    <div className="col row align-items-center">
-                        <span className="text-light custom-font-size col-6">
+                    <div className="col row justify-content-center">
+                        <span className="text-light custom-font-size col-6 row align-items-center custom-width">
                             We forge partnerships with professional therapists & organizations to help relief payments in order to connect people with care.
                         </span>
                     </div>
