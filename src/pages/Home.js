@@ -28,7 +28,7 @@ export default function Home() {
     return (
         <div className="custom-bg">
             <Nav />
-            <div id='section1' className="section">
+            <div id='section1' className="section ">
                 <Content />
             </div>
             <div id='section2' className="section">
