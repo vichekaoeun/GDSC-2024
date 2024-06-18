@@ -94,3 +94,12 @@
         height: 1000px;
     }
 }
+
+.image-container {
+    max-width: 100%;
+    /* Ensures the image doesn't overflow the container */
+    height: auto;
+    /* Maintains aspect ratio */
+    width: 50%;
+    /* Makes the image fit the container width */
+}

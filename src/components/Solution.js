@@ -42,33 +42,33 @@ export default function Solution() {
             >
                 <Lottie animationData={paywall} loop={true} style={{ width: '400px' }} className="m-5" />
             </motion.div>
-            <div className="p-5 mt-5">
+            <div className="row p-5 mt-5 mobile-vertical-stack">
                 <h1 className="text-light custom-font display-2">
                     Our Solution
                 </h1>
                 <div className="row mx-0">
-                    <div className="col">
-                        <img src={frame1} alt="frame1" className="w-45" />
+                    <div className="col d-flex align-items-center justify-content-end">
+                        <img src={frame1} alt="frame1" className="image-container" />
                     </div>
                     <div className="col row align-items-center">
                         <span className="text-light custom-font-size col-6">
-                            Help people in-need share<br /> their stories and find a community.
+                            Help people in-need share their stories and find a community.
                         </span>
                     </div>
                 </div>
                 <div className="row mx-0">
-                    <div className="col d-flex align-items-center">
-                        <span className="text-light custom-font-size ms-auto">
+                    <div className="col d-flex align-items-center justify-content-end">
+                        <span className="text-light custom-font-size">
                             Through opening up from our various programs<br /> people become more comfortable talking.
                         </span>
                     </div>
-                    <div className="col">
-                        <img src={frame2} alt="frame1" className="w-45" />
+                    <div className="col row align-items-center">
+                        <img src={frame2} alt="frame1" className=" image-container" />
                     </div>
                 </div>
                 <div className="row mx-0">
-                    <div className="col">
-                        <img src={frame3} alt="frame1" className="w-45" />
+                    <div className="col d-flex align-items-center justify-content-end">
+                        <img src={frame3} alt="frame1" className="image-container" />
                     </div>
                     <div className="col row align-items-center">
                         <span className="text-light custom-font-size col-6">
