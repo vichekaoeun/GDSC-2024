@@ -55,4 +55,38 @@
     .sidebar {
         width: 100%;
     }
+
+    .custom-font {
+        font-size: 0.875rem;
+    }
+
+    .custom-red-font {
+        font-size: 2rem;
+    }
+
+    .custom-blue-font {
+        font-size: 1rem;
+    }
+
+    .bg-white {
+        padding: 1rem !important;
+    }
+
+    h1.display-1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .pie-chart-container {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .pie-chart-container .recharts-wrapper {
+        width: 100% !important;
+        height: auto !important;
+    }
 }
