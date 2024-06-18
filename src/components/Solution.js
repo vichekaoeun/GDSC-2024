@@ -49,7 +49,7 @@ export default function Solution() {
                 </h1>
                 <div className="row mx-0 mobile-vertical-stack2">
                     <div className="col d-flex align-items-center adjust-position">
-                        <img src={frame1} alt="frame1" className="img-fluid image-container image-container-custom" />
+                        <img src={frame1} alt="frame1" className="img-fluid image-container image-container-custom responsive-image" />
                     </div>
                     <div className="col row justify-content-center">
                         <span className="text-light custom-font-size col-6 row align-items-center custom-width">
@@ -58,18 +58,18 @@ export default function Solution() {
                     </div>
                 </div>
                 <div className="row mx-0 mobile-vertical-stack2">
-                    <div className="col row justify-content-center">
+                    <div className="col row justify-content-center order-2 order-md-1">
                         <span className="text-light custom-font-size col d-flex align-items-center custom-width">
                             Through opening up from our various programs people become more comfortable talking.
                         </span>
                     </div>
-                    <div className="col row align-items-center adjust-position">
-                        <img src={frame2} alt="frame1" className=" img-fluid image-container image-container-custom" />
+                    <div className="col row align-items-center adjust-position order-1 order-md-2">
+                        <img src={frame2} alt="frame1" className=" img-fluid image-container image-container-custom responsive-image" />
                     </div>
                 </div>
                 <div className="row mx-0 mobile-vertical-stack2">
                     <div className="col d-flex align-items-center adjust-position">
-                        <img src={frame3} alt="frame1" className="img-fluid image-container image-container-custom" />
+                        <img src={frame3} alt="frame1" className="img-fluid image-container image-container-custom responsive-image" />
                     </div>
                     <div className="col row justify-content-center">
                         <span className="text-light custom-font-size col-6 row align-items-center custom-width">

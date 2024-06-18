@@ -125,6 +125,11 @@
     /* Ensures the span doesn't overflow its container */
 }
 
+.responsive-image {
+    width: 100%;
+    height: auto;
+}
+
 @media (max-width: 800px) {
     .mobile-vertical-stack2 {
         flex-direction: column;
@@ -134,4 +139,19 @@
     .adjust-position {
         justify-content: center;
     }
+
+    .order-1 {
+        order: 1;
+    }
+
+    .order-2 {
+        order: 2;
+    }
+
+    .responsive-image {
+        width: 150%;
+        /* Adjust the width as needed */
+        max-width: none;
+    }
+
 }
