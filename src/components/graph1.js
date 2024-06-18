@@ -37,7 +37,7 @@ export default function Graph1() {
     };
 
     return (
-        <div className='row mx-0 align-items-center' style={{ height: '40rem' }}>
+        <div className='row mx-0 align-items-center mobile-vertical-stack' style={{ height: 'auto', minHeight: '40rem' }}>
             <VisibilitySensor onChange={onVisibilityChange}>
                 <Grow in={isVisible} timeout={1000}>
                     <div className='col d-flex justify-content-center align-items-center mx-0'>
@@ -48,16 +48,16 @@ export default function Graph1() {
                     </div>
                 </Grow>
             </VisibilitySensor>
-            <div className='col row justify-content-center mx-0'>
+            <div className='col d-flex justify-content-center mx-0'>
                 <VisibilitySensor onChange={onVisibilityChange}>
-                    <PieChart width={500} height={500}>
+                    <PieChart width={350} height={350}>
                         <Pie
                             data={isVisible ? data : []}
-                            cx={250}
-                            cy={250}
+                            cx={175}
+                            cy={175}
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={200}
+                            outerRadius={150}
                             fill="#8884d8"
                             dataKey="value"
                         >
@@ -69,5 +69,5 @@ export default function Graph1() {
                 </VisibilitySensor>
             </div>
         </div>
-    )
+    );
 }

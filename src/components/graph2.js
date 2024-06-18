@@ -1,6 +1,7 @@
 import React, { PureComponent, useState } from 'react';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import './Animation.css';
 import { ResponsiveContainer, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import VisibilitySensor from 'react-visibility-sensor';
 import Grow from '@mui/material/Grow';
@@ -30,10 +31,10 @@ export default function Graph2() {
     const COLORS = ['#01CDA9', '#B9F1E7'];
 
     return (
-        <div className='row mx-0 align-items-center' style={{ height: '40rem' }}>
-            <div className='col row justify-content-center custom-height mx-0'>
-                <VisibilitySensor onChange={onVisibilityChange}>
-                    <ResponsiveContainer width="70%" height='100%'>
+        <div className='row mx-0 align-items-center mobile-vertical-stack' style={{ height: '40rem' }}>
+            <VisibilitySensor onChange={onVisibilityChange}>
+                <div className='col row justify-content-center custom-height mx-0'>
+                    <ResponsiveContainer width="80%" height='100%'>
                         <BarChart
                             width={500}
                             height={300}
@@ -54,8 +55,9 @@ export default function Graph2() {
                             <Bar dataKey="deaths" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} animationBegin={0} animationDuration={2000} />
                         </BarChart>
                     </ResponsiveContainer>
-                </VisibilitySensor>
-            </div>
+
+                </div>
+            </VisibilitySensor>
             <VisibilitySensor onChange={onVisibilityChange}>
                 <Grow in={isVisible} timeout={1000}>
                     <div className='col d-flex justify-content-center align-items-center'>
