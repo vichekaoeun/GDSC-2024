@@ -97,16 +97,11 @@
 
 .image-container {
     max-width: 100%;
-    /* Ensures the image doesn't overflow the container */
     height: auto;
-    /* Maintains the aspect ratio */
-    width: 50%;
-    /* Makes the image fit the container width */
 }
 
 .image-container-custom {
-    max-width: 80%;
-    /* Adjust as needed */
+    max-width: 380px;
 }
 
 .adjust-position {
