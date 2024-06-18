@@ -33,7 +33,7 @@ export default function Graph2() {
     return (
         <div className='row mx-0 align-items-center mobile-vertical-stack' style={{ height: '40rem' }}>
             <VisibilitySensor onChange={onVisibilityChange}>
-                <div className='col row justify-content-center custom-height mx-0'>
+                <div className='col d-flex justify-content-center custom-height mx-0'>
                     <ResponsiveContainer width="80%" height='100%'>
                         <BarChart
                             width={500}
