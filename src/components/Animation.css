@@ -149,4 +149,25 @@
         max-width: none;
     }
 
+    .display-1 {
+        font-size: 2.5rem;
+        /* Adjust the font size for smaller screens */
+    }
+
+    .text-container {
+        text-align: center;
+        margin-bottom: 20px;
+        /* Add some spacing */
+    }
+
+    .sign-container {
+        width: 100%;
+        /* Ensure the image fits within its container */
+    }
+
+}
+
+.sign-container {
+    width: 100%;
+    height: auto;
 }
