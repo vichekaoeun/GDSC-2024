@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <div className="row bg-black text-light roboto-light p-5 mx-0">
             <div className="col text-center row gap-3">
-                <div className="ms-4">
+                <div className="">
                     <h2 className="roboto-regular">Contact Us</h2>
                     <div className="p-3">
                         <a href="https://github.com/vichekaoeun/GDSC-2024" target="_blank">
@@ -18,18 +18,14 @@ export default function Footer() {
                 </div>
                 <div className="mt-5">
                     <h2 className="roboto-regular">Email Us</h2>
-                    <form className="row justify-content-center">
-                        <div className="row w-100">
-                            <div className="col-5"></div>
-                            <div className="row gap-2 col-6">
-                                <input type='email' id='text-email-form' className="form-control" placeholder="Email:"></input>
-                                <input type='text' id='text-box' className="form-control" placeholder="Subject:"></input>
-                            </div>
+                    <form className="" style={{ maxWidth: '400px', margin: '0 auto' }}>
+                        <div className="row">
+                            <input type='email' id='text-email-form' className="form-control" placeholder="Email:"></input>
+                            <input type='text' id='text-box' className="form-control" placeholder="Subject:"></input>
                         </div>
-                        <div className="me-5">
-                            <button type='submit' className="btn btn-secondary mt-4 me-4">Send</button>
+                        <div className="">
+                            <button type='submit' className="btn btn-secondary mt-4">Send</button>
                         </div>
-                        <div></div>
                     </form>
                 </div>
                 <div className="mt-5">
