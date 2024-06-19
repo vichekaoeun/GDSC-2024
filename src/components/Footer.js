@@ -19,7 +19,7 @@ export default function Footer() {
                 <div className="mt-5">
                     <h2 className="roboto-regular">Email Us</h2>
                     <form className="" style={{ maxWidth: '400px', margin: '0 auto' }}>
-                        <div className="row">
+                        <div className="row gap-3">
                             <input type='email' id='text-email-form' className="form-control" placeholder="Email:"></input>
                             <input type='text' id='text-box' className="form-control" placeholder="Subject:"></input>
                         </div>
