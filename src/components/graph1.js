@@ -36,7 +36,7 @@ export default function Graph1() {
     };
 
     return (
-        <div className='row mx-0 align-items-center mobile-vertical-stack' style={{ height: '40rem' }}>
+        <div className='row mx-0 align-items-center mobile-vertical-stack'>
             <VisibilitySensor onChange={onVisibilityChange}>
                 <Grow in={isVisible} timeout={1000}>
                     <div className='col d-flex justify-content-center align-items-center mx-0'>

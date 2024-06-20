@@ -32,7 +32,7 @@ export default function Solution() {
                 animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ type: 'spring', stiffness: 100 }}
             >
-                <Lottie animationData={image} loop={true} style={{ width: '400px' }} className="m-5" />
+                <Lottie animationData={image} loop={true} />
             </motion.div>
             <img src={arrow} alt="arrow" className="arrow-down" style={{ height: '220px' }} />
             <motion.div className="row justify-content-center"
@@ -41,7 +41,7 @@ export default function Solution() {
                 animate={inView2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ type: 'spring', stiffness: 100 }}
             >
-                <Lottie animationData={paywall} loop={true} style={{ width: '400px' }} className="m-5" />
+                <Lottie animationData={paywall} loop={true} />
             </motion.div>
             <div className="row p-5 mt-5">
                 <h1 className="text-light custom-font display-2">

@@ -31,7 +31,7 @@ export default function Graph2() {
     const COLORS = ['#01CDA9', '#B9F1E7'];
 
     return (
-        <div className='row mx-0 align-items-center mobile-vertical-stack' style={{ height: '40rem' }}>
+        <div className='row mx-0 align-items-center mobile-vertical-stack'>
             <VisibilitySensor onChange={onVisibilityChange}>
                 <div className='col d-flex justify-content-center custom-height mx-0'>
                     <ResponsiveContainer width="80%" height='100%'>
@@ -60,7 +60,7 @@ export default function Graph2() {
             </VisibilitySensor>
             <VisibilitySensor onChange={onVisibilityChange}>
                 <Grow in={isVisible} timeout={1000}>
-                    <div className='col d-flex justify-content-center align-items-center'>
+                    <div className='col d-flex justify-content-center mx-0'>
                         <div className='text-center custom-font rounded bg-white p-3 shadow'>
                             <h2><span style={{ fontSize: '1.5em' }} className='custom-red-font'>10th</span> leading cause of death in<br /> the U.S.</h2>
                             <h3>
