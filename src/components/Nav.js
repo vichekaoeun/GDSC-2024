@@ -59,8 +59,7 @@ export default function Nav() {
 
 
                     <div className="row">
-                        <Link className="navbar-brand col-md-auto" to="/" style={{ fontFamily: "Times New Roman", fontSize: "50px", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" }}>Therapy Talks</Link>
-
+                        <Link className="" to="/" style={{ fontFamily: "Times New Roman", fontSize: "50px", fontWeight: "bold", textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" }}>Therapy Talks</Link>
                     </div>
 
 
