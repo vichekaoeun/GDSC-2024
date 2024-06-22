@@ -165,9 +165,32 @@
         /* Ensure the image fits within its container */
     }
 
+    .custom-height {
+        height: 100%;
+        min-height: 200px;
+        /* Adjust minimum height for small screens */
+    }
+
+    .chart-container {
+        max-width: 100%;
+        /* Ensure the chart container is full width on small screens */
+    }
+
 }
 
 .sign-container {
     width: 100%;
     height: auto;
+}
+
+.custom-height {
+    height: 100%;
+    min-height: 300px;
+    /* Ensure a minimum height for the bar chart */
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 500px;
+    /* Set the maximum width for the chart */
 }

@@ -31,19 +31,19 @@ export default function Home() {
             <div id='section1' className="section ">
                 <Content />
             </div>
-            <div id='section2' className="section">
+            <div id='section2' className="section p-5">
                 <Graph1 />
             </div>
-            <div id='section3' className="section">
+            <div id='section3' className="section p-5">
                 <Graph2 />
             </div>
-            <div id="section4" className="section custom-purple-bg">
+            <div id="section4" className="section custom-purple-bg ">
                 <Solution />
             </div>
-            <div id="section5" className="section">
+            <div id="section5" className="section ">
                 <Promo />
             </div>
-            <div id="section6" className="section">
+            <div id="section6" className="section ">
                 <Footer />
             </div>
         </div>

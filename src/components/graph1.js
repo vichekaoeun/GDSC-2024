@@ -47,26 +47,24 @@ export default function Graph1() {
                     </div>
                 </Grow>
             </VisibilitySensor>
-            <div className='col d-flex justify-content-center mx-0'>
-                <VisibilitySensor onChange={onVisibilityChange}>
-                    <PieChart width={350} height={350}>
-                        <Pie
-                            data={isVisible ? data : []}
-                            cx={175}
-                            cy={175}
-                            labelLine={false}
-                            label={renderCustomizedLabel}
-                            outerRadius={150}
-                            fill="#8884d8"
-                            dataKey="value"
-                        >
-                            {data.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                        </Pie>
-                    </PieChart>
-                </VisibilitySensor>
-            </div>
+            <VisibilitySensor onChange={onVisibilityChange}>
+                <PieChart width={350} height={350} className='col d-flex justify-content-center mx-0'>
+                    <Pie
+                        data={isVisible ? data : []}
+                        cx={175}
+                        cy={175}
+                        labelLine={false}
+                        label={renderCustomizedLabel}
+                        outerRadius={150}
+                        fill="#8884d8"
+                        dataKey="value"
+                    >
+                        {data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                    </Pie>
+                </PieChart>
+            </VisibilitySensor>
         </div>
     );
 }
