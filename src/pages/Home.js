@@ -12,6 +12,7 @@ import Promo from '../components/Promo';
 import Footer from '../components/Footer';
 import '../scss/style.scss';
 import '../scss/_variables.scss';
+import './homestyle.css';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
