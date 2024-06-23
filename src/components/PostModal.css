@@ -20,3 +20,26 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 10rem;
 }
+
+.mobile-format2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media(max-width: 800px) {
+    .modal-content {
+        margin: 1rem;
+    }
+
+    .mobile-format {
+        flex-direction: column;
+    }
+
+    .mobile-format h2 {
+        order: 2;
+    }
+
+    .mobile-format2 {
+        order: 1;
+    }
+}

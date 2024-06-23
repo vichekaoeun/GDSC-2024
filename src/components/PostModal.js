@@ -104,9 +104,9 @@ export default function PostModal({ closeModal }) {
     return (
         <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <div className="row">
+                <div className="row mobile-format">
                     <h2 className="col">Create a Post</h2>
-                    <div className="col d-flex justify-content-end">
+                    <div className="col mobile-format2">
                         <button className="btn btn-danger close-button rounded" onClick={closeModal}>
                             Close
                         </button>
