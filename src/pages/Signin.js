@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { Link, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import './mobile.css';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -85,7 +86,7 @@ export default function Signin() {
             <Nav />
 
             <div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
-                <div className="col-8 mx-auto p-5 rounded bg-white" style={{ backgroundColor: '#01cda9' }}>
+                <div className=" mx-auto rounded bg-white mobile_format" style={{ backgroundColor: '#01cda9' }}>
                     <h1 className="mb-4">Sign In</h1>
                     <form onSubmit={handleSignIn}>
                         <div className="mb-3">

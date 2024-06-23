@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { initializeApp } from 'firebase/app'; // Import initializeApp
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import './mobile.css';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -75,7 +76,7 @@ export default function Signup() {
         <>
             <Nav />
             <div className="justify-content-center p-5" style={{ backgroundColor: '#f0ffff' }}>
-                <div className="col-8 mx-auto p-5 rounded bg-white justify c">
+                <div className=" mx-auto rounded bg-white mobile_format">
                     <h1 className="mb-4">Sign Up</h1>
                     <form onSubmit={handleSignUp}>
                         <div className="mb-3">

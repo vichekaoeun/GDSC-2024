@@ -8,7 +8,7 @@ export default function Mission() {
         <div>
             <Nav />
             <div className=" justify-content-center p-5" style={{ backgroundColor: "#332D4F", }} >
-                <div className="container-fluid mx-auto p-5 " style={{ backgroundColor: "#01CDA9", height: "800px", width: "1750px", borderRadius: "30px" }}>
+                <div className="container-fluid mx-auto p-5" style={{ backgroundColor: "#01CDA9", height: "800px", width: "1750px", borderRadius: "30px" }}>
                     <div className="white line" style={{ position: "absolute", top: "310px", left: "110px", transform: "translateY(-50%)" }}>
                         <svg width="200" height="5" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="1.5" x2="200" y2="1.5" stroke="white" stroke-width="3" />
